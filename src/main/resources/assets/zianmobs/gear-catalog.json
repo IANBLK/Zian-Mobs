@@ -1,0 +1,370 @@
+[
+  {
+    "id": "carnivoret_weapon_set_axe",
+    "name": "✦ Hacha Zarzaviva",
+    "kind": "AXE",
+    "model": "elitecreatures:carnivoret_weapon_set/axe",
+    "pack": "Carnivoret",
+    "material": "IRON"
+  },
+  {
+    "id": "carnivoret_weapon_set_bow",
+    "name": "✦ Arco Espinaeterna",
+    "kind": "BOW",
+    "model": "elitecreatures:carnivoret_weapon_set/bow",
+    "pack": "Carnivoret",
+    "material": "IRON"
+  },
+  {
+    "id": "carnivoret_weapon_set_fishing_rod",
+    "name": "✦ Caña del Río Esmeralda",
+    "kind": "FISHING_ROD",
+    "model": "elitecreatures:carnivoret_weapon_set/fishing_rod",
+    "pack": "Carnivoret",
+    "material": "IRON"
+  },
+  {
+    "id": "carnivoret_weapon_set_hammer",
+    "name": "✦ Martillo Romperraíces",
+    "kind": "AXE",
+    "model": "elitecreatures:carnivoret_weapon_set/hammer",
+    "pack": "Carnivoret",
+    "material": "IRON"
+  },
+  {
+    "id": "carnivoret_weapon_set_hoe",
+    "name": "✦ Azada del Bosque Primigenio",
+    "kind": "HOE",
+    "model": "elitecreatures:carnivoret_weapon_set/hoe",
+    "pack": "Carnivoret",
+    "material": "IRON"
+  },
+  {
+    "id": "carnivoret_weapon_set_pickaxe",
+    "name": "✦ Pico Raíz Profunda",
+    "kind": "PICKAXE",
+    "model": "elitecreatures:carnivoret_weapon_set/pickaxe",
+    "pack": "Carnivoret",
+    "material": "IRON"
+  },
+  {
+    "id": "carnivoret_weapon_set_scythe",
+    "name": "✦ Guadaña Segadora de Almas",
+    "kind": "HOE",
+    "model": "elitecreatures:carnivoret_weapon_set/scythe",
+    "pack": "Carnivoret",
+    "material": "IRON"
+  },
+  {
+    "id": "carnivoret_weapon_set_shield",
+    "name": "✦ Escudo Corteza Eterna",
+    "kind": "SHIELD",
+    "model": "elitecreatures:carnivoret_weapon_set/shield",
+    "pack": "Carnivoret",
+    "material": "IRON"
+  },
+  {
+    "id": "carnivoret_weapon_set_shovel",
+    "name": "✦ Pala del Jardín Secreto",
+    "kind": "SHOVEL",
+    "model": "elitecreatures:carnivoret_weapon_set/shovel",
+    "pack": "Carnivoret",
+    "material": "IRON"
+  },
+  {
+    "id": "carnivoret_weapon_set_spear",
+    "name": "✦ Lanza Colmillo del Bosque",
+    "kind": "SWORD",
+    "model": "elitecreatures:carnivoret_weapon_set/spear",
+    "pack": "Carnivoret",
+    "material": "IRON"
+  },
+  {
+    "id": "carnivoret_weapon_set_staff",
+    "name": "✦ Báculo Voz de la Arboleda",
+    "kind": "SWORD",
+    "model": "elitecreatures:carnivoret_weapon_set/staff",
+    "pack": "Carnivoret",
+    "material": "IRON"
+  },
+  {
+    "id": "carnivoret_weapon_set_sword",
+    "name": "✦ Espada Flor del Veneno",
+    "kind": "SWORD",
+    "model": "elitecreatures:carnivoret_weapon_set/sword",
+    "pack": "Carnivoret",
+    "material": "IRON"
+  },
+  {
+    "id": "carnivoret_weapon_set_wing",
+    "name": "✦ Alas del Último Brote",
+    "kind": "WING_TOTEM",
+    "model": "elitecreatures:carnivoret_weapon_set/wing",
+    "pack": "Carnivoret",
+    "material": "IRON"
+  },
+  {
+    "id": "ruby_vol_1_axe",
+    "name": "✦ Hacha Furia Carmesí",
+    "kind": "AXE",
+    "model": "ruby_vol_1_pack:ruby_vol_1_pack/axe_ruby_vol_1",
+    "pack": "Ruby",
+    "material": "DIAMOND"
+  },
+  {
+    "id": "ruby_vol_1_bow",
+    "name": "✦ Arco Juramento de Sangre",
+    "kind": "BOW",
+    "model": "ruby_vol_1_pack:ruby_vol_1_pack/bow_ruby_vol_1",
+    "pack": "Ruby",
+    "material": "IRON"
+  },
+  {
+    "id": "ruby_vol_1_spear",
+    "name": "✦ Lanza Corazón de Rubí",
+    "kind": "SWORD",
+    "model": "ruby_vol_1_pack:ruby_vol_1_pack/spear_ruby_vol_1",
+    "pack": "Ruby",
+    "material": "DIAMOND"
+  },
+  {
+    "id": "ruby_vol_1_staff",
+    "name": "✦ Báculo del Pacto Carmesí",
+    "kind": "SWORD",
+    "model": "ruby_vol_1_pack:ruby_vol_1_pack/staff_ruby_vol_1",
+    "pack": "Ruby",
+    "material": "DIAMOND"
+  },
+  {
+    "id": "ruby_vol_1_sword",
+    "name": "✦ Espada Lágrima de Rubí",
+    "kind": "SWORD",
+    "model": "ruby_vol_1_pack:ruby_vol_1_pack/sword_ruby_vol_1",
+    "pack": "Ruby",
+    "material": "DIAMOND"
+  },
+  {
+    "id": "dark_queen_axe",
+    "name": "✦ Hacha del Ocaso Real",
+    "kind": "AXE",
+    "model": "dark_queen:dark_queen/axe_dark_queen",
+    "pack": "Dark Queen",
+    "material": "DIAMOND"
+  },
+  {
+    "id": "dark_queen_bow",
+    "name": "✦ Arco Susurro de Medianoche",
+    "kind": "BOW",
+    "model": "dark_queen:dark_queen/bow_dark_queen",
+    "pack": "Dark Queen",
+    "material": "IRON"
+  },
+  {
+    "id": "dark_queen_spear",
+    "name": "✦ Lanza del Trono Vacío",
+    "kind": "SWORD",
+    "model": "dark_queen:dark_queen/spear_dark_queen",
+    "pack": "Dark Queen",
+    "material": "DIAMOND"
+  },
+  {
+    "id": "dark_queen_staff",
+    "name": "✦ Báculo de la Reina Umbría",
+    "kind": "SWORD",
+    "model": "dark_queen:dark_queen/staff_dark_queen",
+    "pack": "Dark Queen",
+    "material": "DIAMOND"
+  },
+  {
+    "id": "dark_queen_sword",
+    "name": "✦ Espada Corona de Sombras",
+    "kind": "SWORD",
+    "model": "dark_queen:dark_queen/sword_dark_queen",
+    "pack": "Dark Queen",
+    "material": "DIAMOND"
+  },
+  {
+    "id": "purpleworld_axe",
+    "name": "✦ Hacha del Horizonte Violeta",
+    "kind": "AXE",
+    "model": "purpleworldset:purpleworldset/purpleworld_axe",
+    "pack": "Purple World",
+    "material": "DIAMOND"
+  },
+  {
+    "id": "purpleworld_sword",
+    "name": "✦ Espada del Velo Astral",
+    "kind": "SWORD",
+    "model": "purpleworldset:purpleworldset/purpleworld_sword",
+    "pack": "Purple World",
+    "material": "DIAMOND"
+  },
+  {
+    "id": "purpleworld_hoe",
+    "name": "✦ Azada del Jardín Estelar",
+    "kind": "HOE",
+    "model": "purpleworldset:purpleworldset/purpleworld_hoe",
+    "pack": "Purple World",
+    "material": "DIAMOND"
+  },
+  {
+    "id": "purpleworld_battleaxe",
+    "name": "✦ Hacha de Guerra del Eclipse",
+    "kind": "AXE",
+    "model": "purpleworldset:purpleworldset/purpleworld_battleaxe",
+    "pack": "Purple World",
+    "material": "DIAMOND"
+  },
+  {
+    "id": "purpleworld_pickaxe",
+    "name": "✦ Pico de las Profundidades Astrales",
+    "kind": "PICKAXE",
+    "model": "purpleworldset:purpleworldset/purpleworld_pickaxe",
+    "pack": "Purple World",
+    "material": "DIAMOND"
+  },
+  {
+    "id": "purpleworld_shovel",
+    "name": "✦ Pala de Polvo Estelar",
+    "kind": "SHOVEL",
+    "model": "purpleworldset:purpleworldset/purpleworld_shovel",
+    "pack": "Purple World",
+    "material": "DIAMOND"
+  },
+  {
+    "id": "purpleworld_dagger",
+    "name": "✦ Daga del Lucero Perdido",
+    "kind": "SWORD",
+    "model": "purpleworldset:purpleworldset/purpleworld_dagger",
+    "pack": "Purple World",
+    "material": "DIAMOND"
+  },
+  {
+    "id": "purpleworld_bow",
+    "name": "✦ Arco de la Luna Púrpura",
+    "kind": "BOW",
+    "model": "purpleworldset:purpleworldset/purpleworld_bow",
+    "pack": "Purple World",
+    "material": "IRON"
+  },
+  {
+    "id": "valentines_animated_weapon_and_tool_set_v1_axe",
+    "name": "✦ Hacha del Voto Eterno",
+    "kind": "AXE",
+    "model": "elitecreatures:valentines_animated_weapon_and_tool_set_v1/axe",
+    "pack": "Valentines",
+    "material": "IRON"
+  },
+  {
+    "id": "valentines_animated_weapon_and_tool_set_v1_bow",
+    "name": "✦ Arco del Corazón Errante",
+    "kind": "BOW",
+    "model": "elitecreatures:valentines_animated_weapon_and_tool_set_v1/bow",
+    "pack": "Valentines",
+    "material": "IRON"
+  },
+  {
+    "id": "valentines_animated_weapon_and_tool_set_v1_crossbow",
+    "name": "✦ Ballesta del Lazo Inquebrantable",
+    "kind": "CROSSBOW",
+    "model": "elitecreatures:valentines_animated_weapon_and_tool_set_v1/crossbow",
+    "pack": "Valentines",
+    "material": "IRON"
+  },
+  {
+    "id": "valentines_animated_weapon_and_tool_set_v1_hammer",
+    "name": "✦ Martillo Latido del Alba",
+    "kind": "SWORD",
+    "model": "elitecreatures:valentines_animated_weapon_and_tool_set_v1/hammer",
+    "pack": "Valentines",
+    "material": "IRON"
+  },
+  {
+    "id": "valentines_animated_weapon_and_tool_set_v1_hoe",
+    "name": "✦ Azada del Jardín de los Sueños",
+    "kind": "HOE",
+    "model": "elitecreatures:valentines_animated_weapon_and_tool_set_v1/hoe",
+    "pack": "Valentines",
+    "material": "IRON"
+  },
+  {
+    "id": "valentines_animated_weapon_and_tool_set_v1_pickaxe",
+    "name": "✦ Pico del Anhelo Eterno",
+    "kind": "PICKAXE",
+    "model": "elitecreatures:valentines_animated_weapon_and_tool_set_v1/pickaxe",
+    "pack": "Valentines",
+    "material": "IRON"
+  },
+  {
+    "id": "valentines_animated_weapon_and_tool_set_v1_rod",
+    "name": "✦ Caña del Lago de los Suspiros",
+    "kind": "FISHING_ROD",
+    "model": "elitecreatures:valentines_animated_weapon_and_tool_set_v1/rod",
+    "pack": "Valentines",
+    "material": "IRON"
+  },
+  {
+    "id": "valentines_animated_weapon_and_tool_set_v1_shield",
+    "name": "✦ Escudo del Abrazo Eterno",
+    "kind": "SHIELD",
+    "model": "elitecreatures:valentines_animated_weapon_and_tool_set_v1/shield",
+    "pack": "Valentines",
+    "material": "IRON"
+  },
+  {
+    "id": "valentines_animated_weapon_and_tool_set_v1_shovel",
+    "name": "✦ Pala del Rosal Encantado",
+    "kind": "SHOVEL",
+    "model": "elitecreatures:valentines_animated_weapon_and_tool_set_v1/shovel",
+    "pack": "Valentines",
+    "material": "IRON"
+  },
+  {
+    "id": "valentines_animated_weapon_and_tool_set_v1_spear",
+    "name": "✦ Lanza del Primer Juramento",
+    "kind": "SWORD",
+    "model": "elitecreatures:valentines_animated_weapon_and_tool_set_v1/spear",
+    "pack": "Valentines",
+    "material": "IRON"
+  },
+  {
+    "id": "valentines_animated_weapon_and_tool_set_v1_staff",
+    "name": "✦ Báculo del Corazón Celeste",
+    "kind": "SWORD",
+    "model": "elitecreatures:valentines_animated_weapon_and_tool_set_v1/staff",
+    "pack": "Valentines",
+    "material": "IRON"
+  },
+  {
+    "id": "valentines_animated_weapon_and_tool_set_v1_sword",
+    "name": "✦ Espada Promesa del Alba",
+    "kind": "SWORD",
+    "model": "elitecreatures:valentines_animated_weapon_and_tool_set_v1/sword",
+    "pack": "Valentines",
+    "material": "IRON"
+  },
+  {
+    "id": "toffy_master_sword",
+    "name": "✦ Espada Maestra de Hyrule",
+    "kind": "SWORD",
+    "model": "zianmobs:toffy/toffy_master_sword",
+    "pack": "Toffy Zelda",
+    "material": "DIAMOND"
+  },
+  {
+    "id": "toffy_hylian_shield",
+    "name": "✦ Escudo Hyliano del Valor",
+    "kind": "SHIELD",
+    "model": "zianmobs:toffy/toffy_hylian_shield",
+    "pack": "Toffy Zelda",
+    "material": "DIAMOND"
+  },
+  {
+    "id": "toffy_rupee",
+    "name": "✦ Rupia del Favor de las Diosas",
+    "kind": "ITEM",
+    "model": "zianmobs:toffy/toffy_rupee",
+    "pack": "Toffy Zelda",
+    "material": "DIAMOND"
+  }
+]

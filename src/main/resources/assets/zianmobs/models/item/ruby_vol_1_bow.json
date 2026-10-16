@@ -1,0 +1,25 @@
+{
+  "parent": "ruby_vol_1_pack:ruby_vol_1_pack/bow_ruby_vol_1",
+  "overrides": [
+    {
+      "predicate": {
+        "pulling": 1
+      },
+      "model": "ruby_vol_1_pack:ruby_vol_1_pack/bow_ruby_vol_1_0"
+    },
+    {
+      "predicate": {
+        "pulling": 1,
+        "pull": 0.65
+      },
+      "model": "ruby_vol_1_pack:ruby_vol_1_pack/bow_ruby_vol_1_1"
+    },
+    {
+      "predicate": {
+        "pulling": 1,
+        "pull": 0.9
+      },
+      "model": "ruby_vol_1_pack:ruby_vol_1_pack/bow_ruby_vol_1_2"
+    }
+  ]
+}

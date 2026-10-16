@@ -1,0 +1,44 @@
+[
+  {
+    "id": "abyss_guard",
+    "name": "Guardián abisal",
+    "source": "ec47f416d4e2fc4c.png",
+    "sha256": "60e7fcc590940526fd5923d6ab48db534c7d593c104675ca30f93b31992b2f2c"
+  },
+  {
+    "id": "eclipse_sentinel",
+    "name": "Centinela del eclipse",
+    "source": "81e7edfceb79252b.png",
+    "sha256": "00d426fea0cc9ffb38a45e6298abdd56d56e6b17f524cd65056762a48538344d"
+  },
+  {
+    "id": "glacial_duelist",
+    "name": "Espadachín glacial",
+    "source": "9cd39420dd68af3c.png",
+    "sha256": "4bc02d316f31f60a4c9f2b460b3bb71fe3398c66cde8b29fb78ec4ad09bbb163"
+  },
+  {
+    "id": "solar_knight",
+    "name": "Caballero solar",
+    "source": "0bd1cd069dfe4e9b.png",
+    "sha256": "59abeb29f0954468d93716494d40479fb23fdea36086f12b560ad172f302086e"
+  },
+  {
+    "id": "frost_specter",
+    "name": "Espectro de escarcha",
+    "source": "216946539b237cef.png",
+    "sha256": "bec5726f9e297a3281e08c0ebeb3f3e66474429dd6665c0b7e9364c309227dd9"
+  },
+  {
+    "id": "emerald_guard",
+    "name": "Guardián esmeralda",
+    "source": "e8058e671272472d.png",
+    "sha256": "b9cda9a9f15104b2476b93492d5102ef10b43b10da83a71a34afe19ae8eee680"
+  },
+  {
+    "id": "obsidian_knight",
+    "name": "Caballero de obsidiana",
+    "source": "ae3a40f209bd8310.png",
+    "sha256": "2dee99a78f60e68e0494ca3fd55cd721177ecc443d1d39640accb495c45942b2"
+  }
+]

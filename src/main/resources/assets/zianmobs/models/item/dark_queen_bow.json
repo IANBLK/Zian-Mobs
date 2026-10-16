@@ -1,0 +1,25 @@
+{
+  "parent": "dark_queen:dark_queen/bow_dark_queen",
+  "overrides": [
+    {
+      "predicate": {
+        "pulling": 1
+      },
+      "model": "dark_queen:dark_queen/bow_dark_queen_0"
+    },
+    {
+      "predicate": {
+        "pulling": 1,
+        "pull": 0.65
+      },
+      "model": "dark_queen:dark_queen/bow_dark_queen_1"
+    },
+    {
+      "predicate": {
+        "pulling": 1,
+        "pull": 0.9
+      },
+      "model": "dark_queen:dark_queen/bow_dark_queen_2"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "parent": "elitecreatures:carnivoret_weapon_set/fishing_rod",
+  "overrides": [
+    {
+      "predicate": {
+        "cast": 1
+      },
+      "model": "elitecreatures:carnivoret_weapon_set/fishing_rod_cast"
+    }
+  ]
+}

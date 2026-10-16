@@ -1,0 +1,38 @@
+plugins { id 'java-library'; id 'net.neoforged.moddev' version '2.0.147' }
+group='com.ianblk.zianmobs'
+version=mod_version
+base { archivesName='zianmobs' }
+java.toolchain.languageVersion=JavaLanguageVersion.of(21)
+repositories { mavenCentral(); maven { url='https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/' } }
+neoForge {
+ version='21.1.259'
+ accessTransformers.from(file('src/main/resources/META-INF/accesstransformer.cfg'))
+ runs { client { client() }; clientSmoke { client(); gameDirectory=project.file("build/mobs-client-smoke-beta8"); systemProperty "zianmobs.clientSmoke","true"; programArguments.addAll("--width","1920","--height","1080"); jvmArgument "-Xmx3G" }; server { server(); programArgument '--nogui' }; mobsSmoke { server(); gameDirectory=project.file(project.findProperty('smokeDir') ?: 'build/mobs-smoke'); programArgument '--nogui'; systemProperty 'zianmobs.smoke','true'; systemProperty 'zianmobs.clientFixtures',project.file('build/mobs-client-smoke-beta8/fixtures').absolutePath; jvmArgument '-Xmx3G' } }
+ mods { zianmobs { sourceSet sourceSets.main } }
+}
+dependencies {
+ if(project.hasProperty('geckolibJar')) implementation files(project.property('geckolibJar'))
+ else implementation 'software.bernie.geckolib:geckolib-neoforge-1.21.1:4.9.3'
+ testImplementation platform('org.junit:junit-bom:5.13.4')
+ testImplementation 'org.junit.jupiter:junit-jupiter'
+ testImplementation 'com.google.code.gson:gson:2.10.1'
+ testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+tasks.named('test',Test) { useJUnitPlatform(); if(System.getProperty('os.name').toLowerCase().contains('windows')) systemProperty 'junit.jupiter.tempdir.cleanup.mode.default','NEVER'; systemProperty 'java.io.tmpdir', layout.buildDirectory.dir('test-tmp').get().asFile.absolutePath; doFirst { layout.buildDirectory.dir('test-tmp').get().asFile.mkdirs() } }
+tasks.withType(JavaCompile).configureEach { options.encoding='UTF-8' }
+tasks.named('processResources') { inputs.property('mod_version',mod_version); filesMatching('META-INF/neoforge.mods.toml') { expand(mod_version:mod_version) } }
+tasks.named('jar') { from('LICENSE') { into 'META-INF' } }
+
+configurations { sqliteBundled { transitive = false } }
+dependencies { if(project.hasProperty("sqliteJdbcJar")) sqliteBundled files(project.property("sqliteJdbcJar")); else sqliteBundled "org.xerial:sqlite-jdbc:3.53.4.0" }
+tasks.named("processResources") { from(configurations.sqliteBundled) { into "META-INF/zian-libraries"; rename { "sqlite-jdbc.jar" } } }
+
+// Minecraft can halt normally after a test failure. Require the explicit harness receipt.
+tasks.named('runMobsSmoke') { doFirst { project.delete(project.file((project.findProperty('smokeDir') ?: 'build/mobs-smoke')+'/world/smoke-result.txt')) }; doLast {
+ def receipt=project.file((project.findProperty('smokeDir') ?: 'build/mobs-smoke')+'/world/smoke-result.txt')
+ if(!receipt.isFile() || !receipt.getText('UTF-8').startsWith('PASS:')) throw new GradleException('Zian Mobs server smoke did not pass; inspect its log and receipt.')
+} }
+tasks.named('runClientSmoke') { doFirst { project.delete(project.file('build/mobs-client-smoke-beta8/client-smoke-result.txt')) }; doLast {
+ def receipt=project.file('build/mobs-client-smoke-beta8/client-smoke-result.txt')
+ if(!receipt.isFile() || !receipt.getText('UTF-8').startsWith('PASS:')) throw new GradleException('Zian Mobs client smoke did not pass; inspect its log and receipt.')
+} }

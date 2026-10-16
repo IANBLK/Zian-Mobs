@@ -1,0 +1,38 @@
+{
+  "parent": "elitecreatures:valentines_animated_weapon_and_tool_set_v1/crossbow",
+  "overrides": [
+    {
+      "predicate": {
+        "pulling": 1
+      },
+      "model": "elitecreatures:valentines_animated_weapon_and_tool_set_v1/crossbow_0"
+    },
+    {
+      "predicate": {
+        "pulling": 1,
+        "pull": 0.58
+      },
+      "model": "elitecreatures:valentines_animated_weapon_and_tool_set_v1/crossbow_1"
+    },
+    {
+      "predicate": {
+        "pulling": 1,
+        "pull": 1
+      },
+      "model": "elitecreatures:valentines_animated_weapon_and_tool_set_v1/crossbow_2"
+    },
+    {
+      "predicate": {
+        "charged": 1
+      },
+      "model": "elitecreatures:valentines_animated_weapon_and_tool_set_v1/crossbow_charged"
+    },
+    {
+      "predicate": {
+        "charged": 1,
+        "firework": 1
+      },
+      "model": "elitecreatures:valentines_animated_weapon_and_tool_set_v1/crossbow_2_charged"
+    }
+  ]
+}

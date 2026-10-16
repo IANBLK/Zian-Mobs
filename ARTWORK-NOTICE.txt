@@ -1,0 +1,16 @@
+Zian Mobs — code and artwork notice
+
+The original program code, original interface text, and original Zian Mobs logo are licensed under the MIT License in META-INF/LICENSE (LICENSE in the source repository).
+
+Third-party models, textures, animation data and skins are NOT relicensed under MIT. Copyright and applicable licenses remain with their respective creators. The project maintainer has confirmed authorization to include these resources in this release. Inclusion does not grant downstream permission to extract, resell, sublicense or redistribute them independently; obtain the applicable permission from each rights holder.
+
+Artwork acknowledgements:
+- Cursed One models, textures and animations: QUEUE. Original plugin configuration: Necron; plugin scripts/configurations are not shipped.
+- Oni Brute: Amonde (oni_free pack).
+- Carnivoret Weapon Set: original creators of the Carnivoret pack / EliteCreatures.
+- Ruby Vol. 1, Dark Queen, Purple World Set: original creators of the respective purchased packs.
+- Valentines Animated Weapon and Tool Set: CharliDev and Storm Pixel Studio / EliteCreatures.
+- Toffy's Zelda Pack: Toffy / original pack creators. Referenced game characters and marks remain with their respective owners. This project is not affiliated with or endorsed by Nintendo, Mojang or Microsoft.
+- Combat NPC skins: supplied by the project maintainer; original creators retain their rights.
+
+GeckoLib is a separate required dependency and is not bundled. The bundled SQLite JDBC library retains its own license notices included inside its JAR.

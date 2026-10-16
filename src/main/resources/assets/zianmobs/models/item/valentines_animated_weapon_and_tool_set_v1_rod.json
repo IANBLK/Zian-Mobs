@@ -1,0 +1,11 @@
+{
+  "parent": "elitecreatures:valentines_animated_weapon_and_tool_set_v1/rod",
+  "overrides": [
+    {
+      "predicate": {
+        "cast": 1
+      },
+      "model": "elitecreatures:valentines_animated_weapon_and_tool_set_v1/rod_cast"
+    }
+  ]
+}

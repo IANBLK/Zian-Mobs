@@ -1,0 +1,11 @@
+{
+  "parent": "elitecreatures:carnivoret_weapon_set/shield",
+  "overrides": [
+    {
+      "predicate": {
+        "blocking": 1
+      },
+      "model": "elitecreatures:carnivoret_weapon_set/shield_blocking"
+    }
+  ]
+}

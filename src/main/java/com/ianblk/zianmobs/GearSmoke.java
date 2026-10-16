@@ -1,0 +1,24 @@
+package com.ianblk.zianmobs;
+import java.util.*;
+import net.minecraft.core.component.DataComponents;
+import net.minecraft.world.item.*;
+import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.projectile.Arrow;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.network.chat.Component;
+import com.ianblk.zianmobs.core.AtomicJson;
+/** Native use paths and old-stack migration, not just catalog descriptors. */
+final class GearSmoke {
+ private static void require(boolean ok,String why){if(!ok)throw new IllegalStateException(why);}
+ static void run(ServerPlayer player,Zones zones)throws Exception{
+  for(var spec:Gear.CATALOG){var item=Gear.ITEMS.get(spec.id()).get();var stack=item.getDefaultInstance();require(stack.get(DataComponents.ITEM_NAME)!=null&&stack.get(DataComponents.LORE).lines().size()==3,"Missing decorated name/lore: "+spec.id());require(stack.get(DataComponents.LORE).lines().stream().noneMatch(c->c.getString().contains("━")||c.getString().contains("---")),"Lore contains separators");var vanilla=switch(spec.kind()){case "SWORD"->Items.NETHERITE_SWORD;case "AXE"->Items.NETHERITE_AXE;case "PICKAXE"->Items.NETHERITE_PICKAXE;case "SHOVEL"->Items.NETHERITE_SHOVEL;case "HOE"->Items.NETHERITE_HOE;default->null;};if(vanilla!=null){require(Math.abs(Tuning.defaults(item).damage()-(spec.id().endsWith("_scythe")?14:Tuning.defaults(vanilla).damage()+2+(spec.id().endsWith("_hammer")?1:0)))<.001,"Not netherite +2 damage: "+spec.id());require(stack.getMaxDamage()==2031,"Not netherite durability");}}
+  var sword=Gear.ITEMS.get("carnivoret_weapon_set_sword").get();var old=sword.getDefaultInstance();old.set(DataComponents.ATTRIBUTE_MODIFIERS,net.minecraft.world.item.component.ItemAttributeModifiers.EMPTY);old.set(DataComponents.MAX_DAMAGE,250);old.set(DataComponents.CUSTOM_NAME,Component.literal("Mi espada personal"));Tuning.update(old);require(old.getMaxDamage()==2031&&old.get(DataComponents.ATTRIBUTE_MODIFIERS).equals(sword.getDefaultInstance().get(DataComponents.ATTRIBUTE_MODIFIERS)),"Old item components were not upgraded");require(old.getHoverName().getString().equals("Mi espada personal"),"Anvil custom name overwritten");
+  var main=player.getMainHandItem();var off=player.getOffhandItem();var world=player.serverLevel();
+  try{var bow=(EnhancedBow)Gear.ITEMS.get("carnivoret_weapon_set_bow").get();for(int draw:List.of(15,16)){var stack=bow.getDefaultInstance();player.setItemSlot(EquipmentSlot.MAINHAND,stack);player.setItemSlot(EquipmentSlot.OFFHAND,new ItemStack(Items.ARROW,3));player.startUsingItem(InteractionHand.MAIN_HAND);var before=world.getEntitiesOfClass(Arrow.class,player.getBoundingBox().inflate(8)).stream().map(Entity::getUUID).toList();bow.releaseUsing(stack,world,player,bow.getUseDuration(stack,player)-draw);var arrows=world.getEntitiesOfClass(Arrow.class,player.getBoundingBox().inflate(8)).stream().filter(a->a.getOwner()==player&&!before.contains(a.getUUID())).toList();require(arrows.size()==1,"Bow did not fire exactly once");var arrow=arrows.getFirst();require(arrow.getBaseDamage()==4,"Bow base arrow damage is not +2");require(arrow.isCritArrow()==(draw==16),"Bow tension does not reach full power at exactly 16 ticks");require(player.getOffhandItem().getCount()==2&&stack.getDamageValue()==1,"Bow ammo or durability consumption changed");arrows.forEach(Entity::discard);player.stopUsingItem();}
+   var rupee=Gear.ITEMS.get("toffy_rupee").get();var stack=new ItemStack(rupee,2);require(rupee.getUseDuration(stack,player)==40,"Rupee consumption is not 25% slower");var food=stack.get(DataComponents.FOOD);require(food!=null&&food.canAlwaysEat(),"Rupee cannot be eaten at full hunger");rupee.finishUsingItem(stack,world,player);require(stack.getCount()==1,"Rupee did not consume one item");for(var possible:net.minecraft.world.food.Foods.ENCHANTED_GOLDEN_APPLE.effects()){var base=possible.effect();var actual=player.getEffect(base.getEffect());require(actual!=null&&actual.getAmplifier()==base.getAmplifier()&&actual.getDuration()==Math.round(base.getDuration()*1.3f),"Rupee buff differs from +30% duration");player.removeEffect(base.getEffect());}
+  }finally{player.stopUsingItem();player.setItemSlot(EquipmentSlot.MAINHAND,main);player.setItemSlot(EquipmentSlot.OFFHAND,off);}
+  var legacy=new LinkedHashMap<>(Tuning.current.gear());legacy.put("carnivoret_weapon_set_sword",new Tuning.Stats(128,8,20,0,0,0,2));Tuning.save(new Tuning.Data(1,Tuning.current.attacks(),legacy,Tuning.current.settings()));Tuning.start(player.server.getWorldPath(net.minecraft.world.level.storage.LevelResource.ROOT).resolve("data/zianmobs"));require(Tuning.current.gear().isEmpty()&&Tuning.gear("carnivoret_weapon_set_sword").damage()==10,"Old world gear overrides still affect fixed stats");
+ }
+ private GearSmoke(){}
+}

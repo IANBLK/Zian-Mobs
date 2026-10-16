@@ -1,0 +1,30 @@
+modLoader="javafml"
+loaderVersion="[4,)"
+issueTrackerURL="https://github.com/IANBLK/Zian-Mobs/issues"
+license="MIT (code); third-party artwork retains its original licenses — see META-INF/ARTWORK-NOTICE.txt"
+[[mods]]
+modId="zianmobs"
+version="${mod_version}"
+displayName="Zian Mobs"
+logoFile="icon.png"
+displayURL="https://github.com/IANBLK/Zian-Mobs"
+authors="IANBLK"
+description="Animated creatures, combat NPCs, wave encounters, durable personal rewards and fantasy equipment configured in-game."
+[[dependencies.zianmobs]]
+modId="minecraft"
+type="required"
+versionRange="[1.21.1]"
+side="BOTH"
+[[dependencies.zianmobs]]
+modId="neoforge"
+type="required"
+versionRange="[21.1.259,)"
+side="BOTH"
+[[dependencies.zianmobs]]
+modId="geckolib"
+type="required"
+versionRange="[4.9.3,5)"
+side="BOTH"
+
+[[mixins]]
+config="zianmobs.wings.mixins.json"

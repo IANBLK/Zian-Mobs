@@ -1,0 +1,11 @@
+{
+  "parent": "zianmobs:toffy/toffy_hylian_shield",
+  "overrides": [
+    {
+      "predicate": {
+        "blocking": 1
+      },
+      "model": "zianmobs:toffy/toffy_hylian_shield_blocking"
+    }
+  ]
+}

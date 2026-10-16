@@ -1,0 +1,220 @@
+{
+  "sources": [
+    {
+      "type": "minecraft:single",
+      "resource": "dark_queen:dark_queen/axe_dark_queen"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "dark_queen:dark_queen/bow_dark_queen"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "dark_queen:dark_queen/spear_dark_queen"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "dark_queen:dark_queen/staff_dark_queen"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "dark_queen:dark_queen/sword_dark_queen"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "elitecreatures:carnivoret_weapon_set/axe1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "elitecreatures:carnivoret_weapon_set/bow1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "elitecreatures:carnivoret_weapon_set/bow2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "elitecreatures:carnivoret_weapon_set/bow3"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "elitecreatures:carnivoret_weapon_set/bow4"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "elitecreatures:carnivoret_weapon_set/fishing1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "elitecreatures:carnivoret_weapon_set/hammer"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "elitecreatures:carnivoret_weapon_set/hoe"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "elitecreatures:carnivoret_weapon_set/pickaxe"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "elitecreatures:carnivoret_weapon_set/scythe"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "elitecreatures:carnivoret_weapon_set/shield"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "elitecreatures:carnivoret_weapon_set/shovel"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "elitecreatures:carnivoret_weapon_set/spear"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "elitecreatures:carnivoret_weapon_set/staff"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "elitecreatures:carnivoret_weapon_set/sword"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "elitecreatures:carnivoret_weapon_set/wing"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "elitecreatures:valentines_animated_weapon_and_tool_set_v1/battery"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "elitecreatures:valentines_animated_weapon_and_tool_set_v1/bowfill"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "elitecreatures:valentines_animated_weapon_and_tool_set_v1/cameralens1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "elitecreatures:valentines_animated_weapon_and_tool_set_v1/cloudheart"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "elitecreatures:valentines_animated_weapon_and_tool_set_v1/heartnitro"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "elitecreatures:valentines_animated_weapon_and_tool_set_v1/heartrotate"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "elitecreatures:valentines_animated_weapon_and_tool_set_v1/heartrotate1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "elitecreatures:valentines_animated_weapon_and_tool_set_v1/valentine_tex1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "elitecreatures:valentines_animated_weapon_and_tool_set_v1/valentine_tex2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "elitecreatures:valentines_animated_weapon_and_tool_set_v1/valentine_tex3"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "elitecreatures:valentines_animated_weapon_and_tool_set_v1/valentine_tex4"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "elitecreatures:valentines_animated_weapon_and_tool_set_v1/valentine_tex5"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "elitecreatures:valentines_animated_weapon_and_tool_set_v1/valentine_tex6"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "elitecreatures:valentines_animated_weapon_and_tool_set_v1/valentine_tex7"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "elitecreatures:valentines_animated_weapon_and_tool_set_v1/valentine_tex8"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "purpleworldset:purpleworldset/purpleworld_axe"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "purpleworldset:purpleworldset/purpleworld_battleaxe"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "purpleworldset:purpleworldset/purpleworld_bow"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "purpleworldset:purpleworldset/purpleworld_dagger"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "purpleworldset:purpleworldset/purpleworld_hoe"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "purpleworldset:purpleworldset/purpleworld_pickaxe"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "purpleworldset:purpleworldset/purpleworld_shovel"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "purpleworldset:purpleworldset/purpleworld_sword"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "ruby_vol_1_pack:ruby_vol_1_pack/arrow_ruby_vol_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "ruby_vol_1_pack:ruby_vol_1_pack/axe_ruby_vol_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "ruby_vol_1_pack:ruby_vol_1_pack/bow_ruby_vol_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "ruby_vol_1_pack:ruby_vol_1_pack/spear_ruby_vol_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "ruby_vol_1_pack:ruby_vol_1_pack/staff_ruby_vol_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "ruby_vol_1_pack:ruby_vol_1_pack/sword_ruby_vol_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "zianmobs:imports/toffy/toffy_hylian_shield"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "zianmobs:imports/toffy/toffy_master_sword"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "zianmobs:imports/toffy/toffy_master_sword_swirl"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "zianmobs:imports/toffy/toffy_rupee"
+    }
+  ]
+}
