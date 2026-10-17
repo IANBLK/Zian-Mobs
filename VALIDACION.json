@@ -1,24 +1,33 @@
 {
-  "version": "0.1.0",
-  "previousTestedVersion": "0.1.0-beta.8",
+  "version": "0.2.0",
+  "validatedTrial": "0.2.0-companions-test.10",
   "minecraft": "1.21.1",
-  "loader": "NeoForge",
   "minimumNeoForge": "21.1.259",
   "java": 21,
-  "dependency": "GeckoLib 4.9.3 (4.x)",
-  "gameplayClassesIdenticalToTestedBeta": true,
-  "allPreviousResourcesPreserved": true,
+  "geckolib": "[4.9.3,5)",
+  "jar": "zianmobs-0.2.0.jar",
+  "jarSha256": "12869d072e31f6e16942f9cd36f4c512a180cbab10addbe13a1f2cdca196dfda",
+  "jarBytes": 13592559,
+  "allGameplayClassesIdenticalToValidatedTrial": true,
   "changedArchiveEntries": [
+    "META-INF/ARTWORK-NOTICE.txt",
     "META-INF/neoforge.mods.toml"
   ],
-  "addedArchiveEntries": [
-    "META-INF/ARTWORK-NOTICE.txt",
-    "icon.png",
-    "icon.svg"
+  "unitTests": 64,
+  "unitFailures": 0,
+  "nativeServerSmoke": "PASS",
+  "companionSchema": 4,
+  "humanChecks": [
+    "flight and water",
+    "combat and randomized support",
+    "single active and multiplayer isolation",
+    "permanent revoke and timed access expiry",
+    "upgrades/caps and retained menu selection",
+    "restart persistence of upgrades/access/revival",
+    "revival at full health followed by attacks/support",
+    "Titan armor, blessings and consumable gauntlet"
   ],
-  "humanGameplayChecks": "Maintainer confirmed all gameplay tests passed",
-  "license": "MIT for original code; third-party assets retain original licenses",
-  "thirdPartyRedistribution": "Maintainer explicitly confirmed permission to publish all included assets",
-  "jarSha256": "d7c971a747566ad45dad69b3a452f3f5e18468e91d51a8097943178dff83b99e",
-  "published": false
+  "serverLogReview": "No Zian Mobs errors; unrelated Minecraft public-key request timed out",
+  "thirdPartyArtwork": "Maintainer confirmed redistribution authorization; original licenses retained",
+  "curseforgeUpload": "not performed for 0.2.0"
 }

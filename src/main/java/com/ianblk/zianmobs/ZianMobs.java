@@ -6,5 +6,5 @@ import org.slf4j.Logger;
 @Mod("zianmobs")
 public final class ZianMobs {
  public static final Logger LOGGER=LogUtils.getLogger();
- public ZianMobs(IEventBus bus){Mobs.register(bus);SpawnEggs.register(bus);Gear.register(bus);MobsNetwork.register(bus);WingsTotem.register();NpcCombat.register();GearAbilities.register(bus);var zones=new Zones();new MobsSmoke(zones);LOGGER.info("Zian Mobs development runtime initialized");}
+ public ZianMobs(IEventBus bus){Mobs.register(bus);CompanionContent.register(bus);CompanionUpgrades.register(bus);SpawnEggs.register(bus);Gear.register(bus);MobsNetwork.register(bus);WingsTotem.register();NpcCombat.register();GearAbilities.register(bus);TitanAbilities.register();var zones=new Zones();new Companions();CompanionPublicAccess.register();CompanionCaptureGuard.register();new MobsSmoke(zones);LOGGER.info("Zian Mobs development runtime initialized");}
 }

@@ -9,5 +9,5 @@ import org.spongepowered.asm.mixin.injection.At;
 @Mixin(LivingEntity.class)
 public abstract class WingDeathProtectionMixin {
  @WrapOperation(method="checkTotemDeathProtection",at=@At(value="INVOKE",target="Lnet/minecraft/world/item/ItemStack;is(Lnet/minecraft/world/item/Item;)Z"),require=1)
- private boolean zianmobs$wingTotem(ItemStack stack,Item expected,Operation<Boolean> original){return original.call(stack,expected)||expected==Items.TOTEM_OF_UNDYING&&WingsTotem.isWing(stack);}
+ private boolean zianmobs$wingTotem(ItemStack stack,Item expected,Operation<Boolean> original){return original.call(stack,expected)||expected==Items.TOTEM_OF_UNDYING&&(WingsTotem.isWing(stack)||com.ianblk.zianmobs.TitanAbilities.isGauntlet(stack)&&stack==((LivingEntity)(Object)this).getOffhandItem());}
 }

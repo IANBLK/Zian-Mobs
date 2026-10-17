@@ -1,0 +1,23 @@
+name: Bug report
+description: Report a reproducible Zian Mobs problem
+title: "[Bug] "
+body:
+  - type: textarea
+    id: versions
+    attributes:
+      label: Versions and environment
+      description: Minecraft, Zian Mobs, NeoForge, GeckoLib; dedicated server or single player; hybrid server and shaders if applicable.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps and expected behavior
+      description: Explain how to reproduce, what happened and what should happen.
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant log or screenshots
+      description: Remove credentials, personal details and player addresses before sharing.

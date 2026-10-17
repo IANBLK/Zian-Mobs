@@ -1,0 +1,205 @@
+[
+  {
+    "id": "otter",
+    "name": "Sleepy · Nutria de las Mareas",
+    "flying": false,
+    "glow": false,
+    "death": true
+  },
+  {
+    "id": "kit",
+    "name": "Kit · Guardián del Vínculo",
+    "flying": false,
+    "glow": true,
+    "death": true
+  },
+  {
+    "id": "clank",
+    "name": "Clank · Corazón de Acero",
+    "flying": false,
+    "glow": true,
+    "death": true
+  },
+  {
+    "id": "ghost",
+    "name": "Espíritu del Lucero",
+    "flying": true,
+    "glow": false,
+    "death": true
+  },
+  {
+    "id": "gift",
+    "name": "Regalo del Invierno",
+    "flying": false,
+    "glow": false,
+    "death": false
+  },
+  {
+    "id": "cubee_baby_ghast",
+    "name": "Cubee · Pequeño Ghast",
+    "flying": true,
+    "glow": true,
+    "death": false
+  },
+  {
+    "id": "cubee_bombardier_creeper",
+    "name": "Cubee · Bombardero",
+    "flying": false,
+    "glow": true,
+    "death": false
+  },
+  {
+    "id": "cubee_cannon",
+    "name": "Cubee · Cañón",
+    "flying": false,
+    "glow": true,
+    "death": false
+  },
+  {
+    "id": "cubee_desert",
+    "name": "Cubee · Desierto",
+    "flying": false,
+    "glow": false,
+    "death": false
+  },
+  {
+    "id": "cubee_evil",
+    "name": "Cubee · Sombra",
+    "flying": true,
+    "glow": false,
+    "death": false
+  },
+  {
+    "id": "cubee_fire",
+    "name": "Cubee · Ascua",
+    "flying": false,
+    "glow": true,
+    "death": false
+  },
+  {
+    "id": "cubee_good",
+    "name": "Cubee · Luz",
+    "flying": true,
+    "glow": true,
+    "death": false
+  },
+  {
+    "id": "cubee_grass",
+    "name": "Cubee · Brote",
+    "flying": false,
+    "glow": true,
+    "death": false
+  },
+  {
+    "id": "cubee_hoody_fox",
+    "name": "Cubee · Zorro arquero",
+    "flying": false,
+    "glow": true,
+    "death": false
+  },
+  {
+    "id": "cubee_jungle",
+    "name": "Cubee · Jungla",
+    "flying": false,
+    "glow": false,
+    "death": false
+  },
+  {
+    "id": "cubee_llama",
+    "name": "Cubee · Llama",
+    "flying": false,
+    "glow": true,
+    "death": false
+  },
+  {
+    "id": "cubee_lush",
+    "name": "Cubee · Cueva florida",
+    "flying": false,
+    "glow": false,
+    "death": false
+  },
+  {
+    "id": "cubee_mushroom",
+    "name": "Cubee · Hongo",
+    "flying": false,
+    "glow": false,
+    "death": false
+  },
+  {
+    "id": "cubee_plains",
+    "name": "Cubee · Pradera",
+    "flying": false,
+    "glow": false,
+    "death": false
+  },
+  {
+    "id": "cubee_savanna",
+    "name": "Cubee · Sabana",
+    "flying": false,
+    "glow": false,
+    "death": false
+  },
+  {
+    "id": "cubee_skeleton",
+    "name": "Cubee · Huesitos",
+    "flying": false,
+    "glow": true,
+    "death": false
+  },
+  {
+    "id": "cubee_slingshot",
+    "name": "Cubee · Tirachinas",
+    "flying": false,
+    "glow": true,
+    "death": false
+  },
+  {
+    "id": "cubee_snow",
+    "name": "Cubee · Nieve",
+    "flying": false,
+    "glow": false,
+    "death": false
+  },
+  {
+    "id": "cubee_stone",
+    "name": "Cubee · Roca",
+    "flying": false,
+    "glow": true,
+    "death": false
+  },
+  {
+    "id": "cubee_swag_pillager",
+    "name": "Cubee · Saqueador",
+    "flying": false,
+    "glow": true,
+    "death": false
+  },
+  {
+    "id": "cubee_swamp",
+    "name": "Cubee · Pantano",
+    "flying": false,
+    "glow": false,
+    "death": false
+  },
+  {
+    "id": "cubee_tnt",
+    "name": "Cubee · Dinamita",
+    "flying": false,
+    "glow": true,
+    "death": false
+  },
+  {
+    "id": "cubee_twinkle_witch",
+    "name": "Cubee · Brujita",
+    "flying": false,
+    "glow": true,
+    "death": false
+  },
+  {
+    "id": "cubee_water",
+    "name": "Cubee · Marea",
+    "flying": false,
+    "glow": true,
+    "death": false
+  }
+]

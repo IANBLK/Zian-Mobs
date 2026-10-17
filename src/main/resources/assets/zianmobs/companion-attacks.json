@@ -1,0 +1,116 @@
+{
+  "cubee_baby_ghast": {
+    "clip": "attack",
+    "duration": 20,
+    "impacts": [
+      10
+    ]
+  },
+  "cubee_bombardier_creeper": {
+    "clip": "attack",
+    "duration": 40,
+    "impacts": [
+      7,
+      15,
+      27
+    ]
+  },
+  "cubee_cannon": {
+    "clip": "attack",
+    "duration": 30,
+    "impacts": [
+      20
+    ]
+  },
+  "cubee_evil": {
+    "clip": "attack",
+    "duration": 41,
+    "impacts": [
+      20
+    ]
+  },
+  "cubee_fire": {
+    "clip": "attack",
+    "duration": 41,
+    "impacts": [
+      20
+    ]
+  },
+  "cubee_hoody_fox": {
+    "clip": "attack",
+    "duration": 40,
+    "impacts": [
+      29
+    ]
+  },
+  "cubee_jungle": {
+    "clip": "attack",
+    "duration": 30,
+    "impacts": [
+      20
+    ]
+  },
+  "cubee_llama": {
+    "clip": "attack",
+    "duration": 20,
+    "impacts": [
+      10
+    ]
+  },
+  "cubee_lush": {
+    "clip": "attack",
+    "duration": 30,
+    "impacts": [
+      15
+    ]
+  },
+  "cubee_savanna": {
+    "clip": "attack",
+    "duration": 41,
+    "impacts": [
+      20
+    ]
+  },
+  "cubee_slingshot": {
+    "clip": "attack",
+    "duration": 30,
+    "impacts": [
+      19
+    ]
+  },
+  "cubee_snow": {
+    "clip": "attack",
+    "duration": 30,
+    "impacts": [
+      20
+    ]
+  },
+  "cubee_swag_pillager": {
+    "clip": "attack",
+    "duration": 13,
+    "impacts": [
+      8
+    ]
+  },
+  "cubee_swamp": {
+    "clip": "attack",
+    "duration": 30,
+    "impacts": [
+      20
+    ]
+  },
+  "cubee_tnt": {
+    "clip": "attack",
+    "duration": 41,
+    "impacts": [
+      20
+    ]
+  },
+  "cubee_twinkle_witch": {
+    "clip": "attack",
+    "duration": 23,
+    "impacts": [
+      11
+    ]
+  }
+}

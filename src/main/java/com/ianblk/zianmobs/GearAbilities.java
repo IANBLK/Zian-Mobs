@@ -15,6 +15,7 @@ import net.neoforged.neoforge.event.entity.living.*;
 public final class GearAbilities {
  private static final DeferredRegister<MobEffect> EFFECTS=DeferredRegister.create(Registries.MOB_EFFECT,"zianmobs");
  public static final DeferredHolder<MobEffect,MobEffect> BLEEDING=EFFECTS.register("bleeding",()->new MobEffect(MobEffectCategory.HARMFUL,0xAA2030){@Override public boolean shouldApplyEffectTickThisTick(int duration,int amplifier){return duration%20==0;}@Override public boolean applyEffectTick(LivingEntity target,int amplifier){target.hurt(target.damageSources().magic(),1);return true;}});
+ public static final DeferredHolder<MobEffect,MobEffect> TITAN_AWAKENING=EFFECTS.register("titan_awakening",()->new MobEffect(MobEffectCategory.BENEFICIAL,0xBF6FFF){});
  private record Crit(UUID target,boolean critical,long tick){}
  private static final Map<Player,Crit> CRITS=new WeakHashMap<>();
  public static void register(IEventBus bus){EFFECTS.register(bus);NeoForge.EVENT_BUS.addListener(EventPriority.LOWEST,GearAbilities::critical);NeoForge.EVENT_BUS.addListener(GearAbilities::damage);NeoForge.EVENT_BUS.addListener(EventPriority.LOWEST,GearAbilities::shield);}
@@ -28,7 +29,7 @@ public final class GearAbilities {
   else return;
   if(stack==null||stack.isEmpty())return;hit(owner,e.getEntity(),id(stack),crit);
  }
- static void hit(LivingEntity owner,LivingEntity target,String id,boolean critical){if(id.isEmpty())return;var spec=Gear.CATALOG.stream().filter(s->s.id().equals(id)).findFirst().orElse(null);if(spec==null)return;
+ static void hit(LivingEntity owner,LivingEntity target,String id,boolean critical){if(id.isEmpty())return;TitanAbilities.critical(owner,target,id,critical);var spec=Gear.CATALOG.stream().filter(s->s.id().equals(id)).findFirst().orElse(null);if(spec==null)return;
   if(spec.pack().equals("Carnivoret")&&!id.endsWith("_scythe"))target.addEffect(new MobEffectInstance(MobEffects.POISON,40,0),owner);
   if(spec.pack().equals("Ruby"))target.addEffect(new MobEffectInstance(BLEEDING,40,0),owner);
   if(spec.pack().equals("Dark Queen"))target.addEffect(new MobEffectInstance(MobEffects.WITHER,40,0),owner);

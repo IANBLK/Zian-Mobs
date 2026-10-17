@@ -11,6 +11,15 @@ Artwork acknowledgements:
 - Ruby Vol. 1, Dark Queen, Purple World Set: original creators of the respective purchased packs.
 - Valentines Animated Weapon and Tool Set: CharliDev and Storm Pixel Studio / EliteCreatures.
 - Toffy's Zelda Pack: Toffy / original pack creators. Referenced game characters and marks remain with their respective owners. This project is not affiliated with or endorsed by Nintendo, Mojang or Microsoft.
+- Sleepy the Otter: Nocsy. Included in Zian Mobs 0.2.0.
+- Kit robot: RodentsWorkshop. Included in Zian Mobs 0.2.0.
+- Clank and Ghost pets: PadawanAmy. Included in Zian Mobs 0.2.0.
+- Thanos War Pack armor, double sword and gauntlet: VOID MODELS / arlan_. Included in Zian Mobs 0.2.0.
+- Gift Pet: original creator of the supplied Gift Pet pack; included in Zian Mobs 0.2.0.
+- CUBEES RE Starter, Biomes 1 and Currets: original CUBEES pack creators; included in Zian Mobs 0.2.0.
+- Snowbone: PixelBarrel / Vanilla Story, original model, textures and animation clips; native behavior adaptation.
 - Combat NPC skins: supplied by the project maintainer; original creators retain their rights.
 
 GeckoLib is a separate required dependency and is not bundled. The bundled SQLite JDBC library retains its own license notices included inside its JAR.
+
+Shadow Magic Material by Chiaki Haruma. Original textures and animation metadata retained unchanged; third-party artwork is not licensed under the project MIT code license.

@@ -1,0 +1,1 @@
+{"required": false, "minVersion": "0.8", "package": "com.ianblk.zianmobs.mixin", "compatibilityLevel": "JAVA_21", "mixins": ["SupplementariesCaptureMixin", "SupplementariesContainerMixin"], "injectors": {"defaultRequire": 0}}

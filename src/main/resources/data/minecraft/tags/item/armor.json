@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "zianmobs:titan_helmet",
+    "zianmobs:titan_chestplate",
+    "zianmobs:titan_leggings",
+    "zianmobs:titan_boots"
+  ]
+}

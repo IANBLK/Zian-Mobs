@@ -1,10 +1,14 @@
-# Guía de Zian Mobs 0.1.0
+# Guía de Zian Mobs 0.2.0
 
 Mod para Minecraft 1.21.1, NeoForge 21.1.259 y GeckoLib 4.9.3 en **cliente y servidor**. Mod independiente: no necesita Zian Manager, MythicMobs ni ModelEngine. Reutiliza la apariencia de NPC y la interfaz carbón/dorado de Manager sin modificar ese mod.
 
+## Novedades de 0.2.0
+
+Incluye 29 compañeros voladores, 14 materiales de mejora permanente, Snowbone y el conjunto completo del Titán con armadura encantable, espada y guantelete. Consulta la [guía de compañeros, materiales y permisos](COMPANIONS_ES.md) la [guía del Titán](TITAN_ES.md) y los [pasos de actualización y copias](UPDATING.md). Los compañeros se abren con `/companions` o `/ziancompanions` y requieren desbloqueo del administrador.
+
 ## Instalación
 
-Guarda una copia del mundo, reemplaza el JAR anterior por 0.1.0 tanto en cliente como en servidor y reinicia. No dejes dos versiones juntas. Los registros retirados desaparecen al cargar: para recuperarlos necesitas el mundo y el JAR anteriores. Actualiza cliente y servidor juntos, conservando los datos y configuraciones del mundo.
+Guarda una copia del mundo, reemplaza el JAR anterior por 0.2.0 tanto en cliente como en servidor y reinicia. No dejes dos versiones juntas. Los registros retirados desaparecen al cargar: para recuperarlos necesitas el mundo y el JAR anteriores. Actualiza cliente y servidor juntos, conservando los datos y configuraciones del mundo.
 
 Abre **`/zianmobs`** con operador de nivel 2. Los jugadores pueden usar `/zianmobs pending`. No hay generación natural ni zonas activadas automáticamente.
 

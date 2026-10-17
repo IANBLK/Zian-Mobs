@@ -9,7 +9,7 @@ displayName="Zian Mobs"
 logoFile="icon.png"
 displayURL="https://github.com/IANBLK/Zian-Mobs"
 authors="IANBLK"
-description="Animated creatures, combat NPCs, wave encounters, durable personal rewards and fantasy equipment configured in-game."
+description="Animated companions with permanent upgrades, combat NPCs, wave encounters, durable personal rewards and fantasy equipment configured in-game."
 [[dependencies.zianmobs]]
 modId="minecraft"
 type="required"
@@ -28,3 +28,6 @@ side="BOTH"
 
 [[mixins]]
 config="zianmobs.wings.mixins.json"
+
+[[mixins]]
+config="zianmobs.capture.mixins.json"

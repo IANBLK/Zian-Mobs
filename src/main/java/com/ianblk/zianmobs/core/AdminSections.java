@@ -19,6 +19,7 @@ public final class AdminSections {
   return "Básico";
  }
  public static String help(String section,String group){
+  if(section.equals("companion_upgrades"))return switch(group){case "Combate"->"Diez niveles permiten alcanzar el doble de las estadísticas base.";case "Habilidades"->"Mejora el apoyo y la resurrección. Las esperas ya iniciadas se conservan.";default->"Guarda al compañero y elige un material. Cada uso consume una unidad.";};
   if(group.equals("Avanzado"))return "Opciones adicionales. Revisa las confirmaciones antes de eliminar.";
   if(group.equals("Equipo"))return "Sostén el objeto, elige una ranura y pulsa Asignar.";
   if(group.equals("Premios"))return "Selecciona una tabla creada en Recompensas.";

@@ -1,1 +1,22 @@
-{"replace": false, "values": ["zianmobs:carnivoret_weapon_set_spear", "zianmobs:carnivoret_weapon_set_staff", "zianmobs:carnivoret_weapon_set_sword", "zianmobs:dark_queen_spear", "zianmobs:dark_queen_staff", "zianmobs:dark_queen_sword", "zianmobs:purpleworld_dagger", "zianmobs:purpleworld_sword", "zianmobs:ruby_vol_1_spear", "zianmobs:ruby_vol_1_staff", "zianmobs:ruby_vol_1_sword", "zianmobs:toffy_master_sword", "zianmobs:valentines_animated_weapon_and_tool_set_v1_hammer", "zianmobs:valentines_animated_weapon_and_tool_set_v1_spear", "zianmobs:valentines_animated_weapon_and_tool_set_v1_staff", "zianmobs:valentines_animated_weapon_and_tool_set_v1_sword"]}
+{
+  "replace": false,
+  "values": [
+    "zianmobs:carnivoret_weapon_set_spear",
+    "zianmobs:carnivoret_weapon_set_staff",
+    "zianmobs:carnivoret_weapon_set_sword",
+    "zianmobs:dark_queen_spear",
+    "zianmobs:dark_queen_staff",
+    "zianmobs:dark_queen_sword",
+    "zianmobs:purpleworld_dagger",
+    "zianmobs:purpleworld_sword",
+    "zianmobs:ruby_vol_1_spear",
+    "zianmobs:ruby_vol_1_staff",
+    "zianmobs:ruby_vol_1_sword",
+    "zianmobs:toffy_master_sword",
+    "zianmobs:valentines_animated_weapon_and_tool_set_v1_hammer",
+    "zianmobs:valentines_animated_weapon_and_tool_set_v1_spear",
+    "zianmobs:valentines_animated_weapon_and_tool_set_v1_staff",
+    "zianmobs:valentines_animated_weapon_and_tool_set_v1_sword",
+    "zianmobs:titan_double_sword"
+  ]
+}

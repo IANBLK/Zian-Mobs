@@ -35,6 +35,7 @@ for key,d in models.items():
    for face in e.get('faces',{}).values():texture(face['texture'],table)
  except ValueError as e:issues.append([key,str(e)])
 catalog=json.loads((RES/'assets/zianmobs/gear-catalog.json').read_text(encoding='utf-8'));required=[r['id'] for r in catalog]+[id+'_spawn_egg' for id in ['cursed_one_forest','cursed_one_ice','cursed_one_crystal','oni_brute','combat_npc']]
+required += ['titan_helmet','titan_chestplate','titan_leggings','titan_boots','snowbone_spawn_egg','titan_double_sword','titan_gauntlet']
 for id in required:
  if 'zianmobs:item/'+id not in models:issues.append([id,'missing registered item model'])
 animations=0

@@ -1,50 +1,92 @@
 # Zian Mobs
 
-Animated creatures, combat NPCs, configurable wave encounters and fantasy equipment for Minecraft 1.21.1.
+Animated allies, fantasy creatures and configurable battles for your world. Zian Mobs combines **29 flying companions**, permanent upgrades, combat NPCs, wave encounters and fantasy equipment in one standalone mod.
 
-![Zian Mobs equipment](docs/images/equipment-catalog.png)
+[Downloads](https://github.com/IANBLK/Zian-Mobs/releases) · [CurseForge](https://www.curseforge.com/minecraft/mc-mods/zian-mobs) · [Guía en español](docs/GUIA_ES.md) · [Changelog](CHANGELOG.md) · [Issues](https://github.com/IANBLK/Zian-Mobs/issues)
 
-## Requirements
+![Flying companion](docs/images/vuelo-ascua.png)
 
-- Minecraft 1.21.1, Java 21, NeoForge 21.1.259 or newer in the 1.21.1 series.
-- GeckoLib 4.9.3 or a compatible 4.x version.
-- Install Zian Mobs and GeckoLib on **both client and server**.
-- Standalone mod: Zian Manager, MythicMobs and ModelEngine are not required.
+## Requirements and installation
 
-## Features
+- Minecraft **1.21.1**, Java **21**, NeoForge **21.1.259 or later for Minecraft 1.21.1**.
+- [GeckoLib](https://www.curseforge.com/minecraft/mc-mods/geckolib) **4.9.3 or compatible 4.x**, installed separately.
+- Matching Zian Mobs and GeckoLib versions on **both client and server**. Replace the previous JAR; do not keep duplicate versions.
+- Standalone: Zian Manager, MythicMobs, ModelEngine, Accessories and Curios are not required. SQLite JDBC is bundled.
 
-- Three Cursed One variants and Oni Brute with animations.
-- Combat NPCs with seven appearances, melee equipment, bows and configurable sonic, dragon, Wither and blaze attacks without terrain destruction.
-- In-game administrator interface with search, grouped forms and GUI scales 2, 3 and 4.
-- Wave zones, spawn-point wireframes, public wave/countdown displays and boss bars.
-- Personal rewards with durable delivery records, pending deliveries and administrative review.
-- 46 fantasy equipment and decorative items plus five spawn eggs. No armor is included.
-- Enhanced bows, collection effects, critical-hit healing, safe staff attacks, a protective shield, revival wings and an edible blessed rupee.
+Back up your world before updating. Read [updating and storage](docs/UPDATING.md) before returning to an older version.
 
-## Getting started
+## Companions that fight beside you
 
-Install matching versions on both sides, back up your world and run `/zianmobs` as an operator (permission level 2). Create a creature or NPC, configure its rewards, then create a zone with a team and spawn points. No natural spawning or encounter zones are enabled automatically.
+Open `/companions` or `/ziancompanions`. Your unlocked companions appear first; **Ver todos** shows the complete collection. Summon, store and heal, bring your companion to your side, check its revival countdown or improve its bond.
 
-Players can use `/zianmobs pending` to check pending rewards. Data remains isolated per world. Upgrading from beta.8 keeps existing `zianmobs:` identifiers, items and zone data; replace the previous JAR rather than keeping two copies.
+- **One active companion per player.** Summoning another replaces the active companion.
+- All 29 fly, follow their owner and seek free air over water. They remain above water when the owner dives.
+- Follow range **16 blocks**; recovery when left behind; automatic storage with a chat notice beyond **32 blocks**.
+- Ranged defense with **12-block target range** and a base **4-second attack cooldown**, subject to animation and valid-target checks. Players, companions and tameable entities are excluded as targets. Hostile mobs can retaliate and companions can take damage and die.
+- **One or two eligible support buffs chosen at random** when support is needed. The pool varies by companion; decorated chat messages identify the effects.
+- Manually storing a living companion heals it. Automatic storage does not heal. Death requires the revival wait to finish, including across server restarts.
+- Owner death, logout, dimension changes and lost access withdraw the active companion. Upgrades and saved waits survive access revocation and restoration.
+- Managed companions reject normal capture interactions. Supplementaries container compatibility has been tested; not every third-party capture implementation is guaranteed.
 
-[Spanish guide](docs/GUIA_ES.md) · [Changelog](CHANGELOG.md) · [Issues](https://github.com/IANBLK/Zian-Mobs/issues)
+### Permanent upgrades
 
-## Equipment abilities
+Most companions start with **36 health, 6 armor and 4 damage**. Kit starts with **45 health**, Ghost with **24**. These are default settings; administrators can configure them.
 
-- Carnivoret: poison for 2 seconds, except the scythe. The scythe deals 14 total attack damage and heals 10% maximum health on a critical hit, plus regeneration I for 5 seconds.
+Each of six tracks caps at **level 10**. Normal materials give **+1 level**, Awakened materials **+2**. Each successful use consumes one item. A capped attempt consumes nothing. The companion must be unlocked, alive and stored.
+
+- Health, damage and armor gain **10% of base per level**, up to twice the base. Typical maxima: **72 health, 12 armor, 8 damage**. Kit reaches 90 health; Ghost reaches 48.
+- Support duration: **15 to 30 seconds**.
+- Support cooldown: **90 to 45 seconds**.
+- Revival wait: **600 to 300 seconds**.
+
+The **14 Shadow Magic materials** offer six individual upgrades and a Diamond of the Bond for every unfinished track. They are available through the creative catalogue and administrator grants; no automatic crafting recipes or loot drops are added for them. [Companion guide, IDs and commands](docs/COMPANIONS_ES.md).
+
+## Creatures, NPCs and wave encounters
+
+Three Cursed One variants, Oni Brute, **Snowbone** and combat NPCs with **seven appearances** provide encounter building blocks. NPCs support melee, bows and configurable sonic, dragon, Wither and blaze skills without terrain destruction.
+
+Operators open `/zianmobs` to configure creatures, teams, rewards and zones. Grouped forms, search, automatic identifiers, blue boundary lines and spawn-point previews, public wave/countdown displays and boss bars support in-game editing. Natural spawning and active zones are **not enabled automatically**.
+
+Personal rewards use durable delivery records and pending claims. Players can use `/zianmobs pending`. Data remains isolated per world.
+
+## Fantasy equipment
+
+The original **46 fantasy equipment and decorative items** remain available, alongside four Titan armor pieces, the Titan Double Sword and Titan Gauntlet. Fantasy names and short decorated lore preserve existing anvil names and enchantments.
+
+![Equipment catalogue](docs/images/equipment-catalog.png)
+
+- Carnivoret: poison for 2 seconds, except scythes. Scythes deal **14 total damage**; critical hits heal **10% maximum health** and grant regeneration I for **5 seconds**, with a **30-second cooldown**.
 - Crimson Ruby: bleeding for 2 seconds. Dark Queen: Wither for 2 seconds. Purple World: weakness for 2 seconds.
-- Valentines: critical hits heal 10% maximum health and grant regeneration I for 5 seconds.
-- Master Sword: critical hits heal 20% maximum health and grant regeneration I for 10 seconds.
-- Hylian Shield: a successful block grants resistance I and regeneration I for 10 seconds.
-- Staffs cast sonic, Wither-skull or dragon attacks using right click.
-- Ability cooldowns are 30 seconds; healing shares one cooldown across weapons and survives reconnects. Carnivoret and Valentines hammers deal 13 and 11 total attack damage respectively.
+- Valentines: critical hits heal 10% maximum health and grant regeneration I for 5 seconds. Master Sword: heal 20% and regeneration I for 10 seconds. Both use a 30-second cooldown; weapon healing shares a persistent cooldown.
+- Hylian Shield: a valid block grants resistance I and regeneration I for 10 seconds; cooldown 30 seconds.
+- Right-click staffs cast sonic, Wither-skull or dragon attacks; cooldown 30 seconds, without terrain destruction. Enhanced bows have stronger shots and shorter draw time.
+- Revival wings and the edible blessed Toffy Rupee retain their special abilities.
 
-## Build
+### Titan equipment
 
-Use Java 21 and `./gradlew build` (`gradlew.bat build` on Windows). GeckoLib and SQLite JDBC dependencies are resolved through Gradle. The optional `-PgeckolibJar=...` and `-PsqliteJdbcJar=...` properties support local development dependencies. Build output, worlds, local libraries, private archives and credentials are not tracked.
+The armor uses native netherite-based properties and supports enchantments. The chestpiece adjusts to **wide and slim skins**. The double sword deals **10 total damage** at **1.6 attack speed**.
 
-## License and artwork
+Use the sword in the main hand and gauntlet in the offhand. A valid melee critical hit against a mob or a melee mob kill grants **regeneration II, absorption IV, resistance I, fire resistance I and night vision I** for **30 seconds**, with a **60-second cooldown**. All four Titan armor pieces change duration and cooldown to **45 seconds each**.
 
-Original code is **MIT**; see [LICENSE](LICENSE). Third-party models, textures, animations and skins retain their original licenses and are **not MIT-licensed**. The maintainer confirmed permission to publish the included artwork with this project. See [artwork notice and credits](ARTWORK-NOTICE.txt). This does not grant permission to extract or resell those assets independently.
+Gems illuminate while the blessing is active; bloom depends on the shader. The offhand gauntlet can also save its wearer through native totem behavior: **one gauntlet is consumed**, subject to native damage bypasses and cancellation rules.
 
-GeckoLib is a required separate dependency. SQLite JDBC is bundled with its own license notices. This project is not affiliated with or endorsed by Mojang, Microsoft or Nintendo.
+![Titan armor on wide and slim skins](docs/images/thanos-anchos-y-delgados.png)
+
+## Commands and permissions
+
+- `/companions`, `/ziancompanions`, `/zianmobs companions`: public collection menu.
+- `/zianmobs`: operator interface, administration requires **permission level 2**.
+- `/zianmobs pending`: pending personal rewards.
+- `/zianmobs companion grant <player|UUID> <companion> [seconds]`: unlock. Omit duration or use `0` for permanent access; timed grants require at least 10 seconds.
+- `/zianmobs companion revoke <player|UUID> <companion>`: remove access and withdraw an active companion.
+- `/zianmobs companion status <player|UUID> <companion>`: access, levels and revival wait.
+
+Example: `/zianmobs companion grant Steve cubee_fire 3600` unlocks Ascua for one hour. Player names require an online player; use a UUID for offline management. Unlocks are managed by Zian Mobs; ranks are not automatically synchronized. A command-whitelist plugin may separately require allowing the public menu commands. Keep administrative commands restricted.
+
+## Support, build and credits
+
+[Report a problem](https://github.com/IANBLK/Zian-Mobs/issues) with versions, reproduction steps and sanitized logs. See [Contributing](CONTRIBUTING.md) for build instructions.
+
+Original code is **MIT**. Third-party models, textures, animations and skins retain their original licenses and are **not relicensed under MIT**. The maintainer confirmed authorization to publish the included artwork. See [LICENSE](LICENSE) and [credits](ARTWORK-NOTICE.txt). Inclusion does not authorize independent extraction or resale. Bundled SQLite JDBC retains its own notices.
+
+Not affiliated with or endorsed by Mojang, Microsoft, Nintendo or Marvel. Compatibility with every hybrid server, shader or entity-capture mod is not guaranteed.

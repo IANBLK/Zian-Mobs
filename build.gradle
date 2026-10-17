@@ -7,7 +7,7 @@ repositories { mavenCentral(); maven { url='https://dl.cloudsmith.io/public/geck
 neoForge {
  version='21.1.259'
  accessTransformers.from(file('src/main/resources/META-INF/accesstransformer.cfg'))
- runs { client { client() }; clientSmoke { client(); gameDirectory=project.file("build/mobs-client-smoke-beta8"); systemProperty "zianmobs.clientSmoke","true"; programArguments.addAll("--width","1920","--height","1080"); jvmArgument "-Xmx3G" }; server { server(); programArgument '--nogui' }; mobsSmoke { server(); gameDirectory=project.file(project.findProperty('smokeDir') ?: 'build/mobs-smoke'); programArgument '--nogui'; systemProperty 'zianmobs.smoke','true'; systemProperty 'zianmobs.clientFixtures',project.file('build/mobs-client-smoke-beta8/fixtures').absolutePath; jvmArgument '-Xmx3G' } }
+ runs { clientSceneSmoke { client(); gameDirectory=project.file("build/mobs-scene-client"); systemProperty "zianmobs.scene","true"; systemProperty "zianmobs.flightScene",project.findProperty("flightScene") ?: "false"; systemProperty "zianmobs.attackScene",project.findProperty("attackScene") ?: "false"; systemProperty "zianmobs.eyeFocus",project.findProperty("eyeFocus") ?: "false"; programArguments.addAll("--width","1920","--height","1080","--quickPlaySingleplayer","companions-scene"); jvmArgument "-Xmx3G" }; client { client() }; clientSmoke { client(); gameDirectory=project.file("build/mobs-client-smoke-companions"); systemProperty "zianmobs.clientSmoke","true"; systemProperty "zianmobs.shadowFocus",project.findProperty("shadowFocus") ?: "false"; systemProperty "zianmobs.itemFocus",project.findProperty("itemFocus") ?: "false"; systemProperty "zianmobs.clientSmokeStart",project.findProperty("clientSmokeStart") ?: "0"; programArguments.addAll("--width","1920","--height","1080"); jvmArgument "-Xmx3G" }; server { server(); programArgument '--nogui' }; mobsSmoke { server(); gameDirectory=project.file(project.findProperty('smokeDir') ?: 'build/mobs-smoke'); programArgument '--nogui'; systemProperty 'zianmobs.smoke','true'; systemProperty 'zianmobs.clientFixtures',project.file('build/mobs-client-smoke-companions/fixtures').absolutePath; jvmArgument '-Xmx3G' } }
  mods { zianmobs { sourceSet sourceSets.main } }
 }
 dependencies {
@@ -32,7 +32,20 @@ tasks.named('runMobsSmoke') { doFirst { project.delete(project.file((project.fin
  def receipt=project.file((project.findProperty('smokeDir') ?: 'build/mobs-smoke')+'/world/smoke-result.txt')
  if(!receipt.isFile() || !receipt.getText('UTF-8').startsWith('PASS:')) throw new GradleException('Zian Mobs server smoke did not pass; inspect its log and receipt.')
 } }
-tasks.named('runClientSmoke') { doFirst { project.delete(project.file('build/mobs-client-smoke-beta8/client-smoke-result.txt')) }; doLast {
- def receipt=project.file('build/mobs-client-smoke-beta8/client-smoke-result.txt')
+tasks.named('runClientSmoke') { doFirst { project.delete(project.file('build/mobs-client-smoke-companions/client-smoke-result.txt')) }; doLast {
+ def receipt=project.file('build/mobs-client-smoke-companions/client-smoke-result.txt')
  if(!receipt.isFile() || !receipt.getText('UTF-8').startsWith('PASS:')) throw new GradleException('Zian Mobs client smoke did not pass; inspect its log and receipt.')
 } }
+
+ tasks.named('runClientSceneSmoke') { doFirst { if(project.hasProperty('flightScene')) project.delete(project.file('build/mobs-scene-client/armor-fit-result.txt'));  project.delete(project.file('build/mobs-scene-client/'+(project.hasProperty('flightScene')?'flight-scene-result.txt':project.hasProperty('attackScene')?'attack-scene-result.txt':project.hasProperty('eyeFocus')?'eyes-result.txt':'scene-result.txt'))) }; doLast {
+ def receipt=project.file('build/mobs-scene-client/'+(project.hasProperty('flightScene')?'flight-scene-result.txt':project.hasProperty('attackScene')?'attack-scene-result.txt':project.hasProperty('eyeFocus')?'eyes-result.txt':'scene-result.txt'))
+ if(!receipt.isFile() || !receipt.getText('UTF-8').startsWith('PASS:')) throw new GradleException('Companion scene did not pass; inspect its receipt and screenshots.')
+ if(project.hasProperty('flightScene')) { def armor=project.file('build/mobs-scene-client/armor-fit-result.txt'); if(!armor.isFile() || !armor.getText('UTF-8').startsWith('PASS:')) throw new GradleException('Slim/wide armor preview did not pass.') }
+ } }
+
+// Optional local integration test only; these third-party mods are never bundled.
+dependencies { if(project.hasProperty('supplementariesJar')) runtimeOnly files(project.property('supplementariesJar')); if(project.hasProperty('moonlightJar')) runtimeOnly files(project.property('moonlightJar')) }
+
+dependencies { if(project.hasProperty('irisJar')) runtimeOnly files(project.property('irisJar')) }
+
+dependencies { if(project.hasProperty('sodiumJar')) runtimeOnly fileTree(dir:'build/shader-runtime',include:['fabric-*.jar','sodium-dev-combined.jar']) }
