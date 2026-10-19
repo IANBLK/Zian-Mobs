@@ -1,0 +1,20 @@
+package com.ianblk.zianmobs.core;
+import com.google.gson.*;
+import com.ianblk.zianmobs.core.Definitions.*;
+import java.util.*;
+/** Pure, additive conversion. Source records and existing target IDs are never overwritten. */
+public final class ManagerCombatTransfer {
+ public record Plan(Map<String,MobSpec> mobs,Map<String,LootSpec> loot,Map<String,ZoneSpec> zones,Map<String,String> identifiers,int addedMobs,int addedLoot,int addedZones){}
+ private static final Gson GSON=new Gson();
+ private static String reserve(String before,Set<String> ids){Definitions.id(before);String id=before;for(int n=0;ids.contains(id);n++){String prefix="mgr_"+before.substring(0,Math.min(before.length(),23));id=prefix+(n==0?"":"_"+n);}ids.add(id);return id;}
+ public static Plan plan(JsonObject source,Map<String,MobSpec> targetMobs,Map<String,LootSpec> targetLoot,Map<String,ZoneSpec> targetZones){
+  if(source.get("schema").getAsInt()!=1&&source.get("schema").getAsInt()!=2)throw new IllegalArgumentException("Versión de Manager no compatible");var sourceMobs=source.getAsJsonObject("mobs");var sourceLoot=source.getAsJsonObject("loot");var sourceZones=source.getAsJsonObject("zones");if(sourceMobs.size()>128||sourceLoot.size()>128||sourceZones.size()>64)throw new IllegalArgumentException("Exportación demasiado grande");
+  var usedLoot=new TreeSet<String>();for(var e:sourceMobs.entrySet()){var m=GSON.fromJson(e.getValue(),MobSpec.class);if(!m.loot().isEmpty())usedLoot.add(m.loot());}for(var e:sourceZones.entrySet()){var z=GSON.fromJson(e.getValue(),ZoneSpec.class);if(!z.completionLoot().isEmpty())usedLoot.add(z.completionLoot());}for(var e:sourceLoot.entrySet()){String category=e.getValue().getAsJsonObject().get("category").getAsString();if(!category.equals("CHEST"))usedLoot.add(e.getKey());}
+  var mobs=new LinkedHashMap<>(targetMobs);var loot=new LinkedHashMap<>(targetLoot);var zones=new LinkedHashMap<>(targetZones);var mapping=new LinkedHashMap<String,String>();var lootIds=new HashSet<>(loot.keySet());var mobIds=new HashSet<>(mobs.keySet());var zoneIds=new HashSet<>(zones.keySet());
+  for(String old:usedLoot){if(!sourceLoot.has(old))throw new IllegalArgumentException("Recompensa de Manager inexistente: "+old);var l=GSON.fromJson(sourceLoot.get(old),LootSpec.class);if(!old.equals(l.id()))throw new IllegalArgumentException("Referencia de recompensa inválida");String id=reserve(old,lootIds);mapping.put("loot:"+old,id);loot.put(id,new LootSpec(id,l.category(),l.rolls(),l.entries(),l.table(),l.independent()));}
+  for(String old:new TreeSet<>(sourceMobs.keySet())){var m=GSON.fromJson(sourceMobs.get(old),MobSpec.class);if(!old.equals(m.id()))throw new IllegalArgumentException("Referencia de criatura inválida");String id=reserve(old,mobIds);mapping.put("mob:"+old,id);mobs.put(id,new MobSpec(id,m.name(),m.entity(),m.health(),m.damage(),m.armor(),m.toughness(),m.knockback(),m.effects(),m.equipment(),m.loot().isEmpty()?"":Objects.requireNonNull(mapping.get("loot:"+m.loot())),m.boss()));}
+  for(String old:new TreeSet<>(sourceZones.keySet())){var z=GSON.fromJson(sourceZones.get(old),ZoneSpec.class);if(!old.equals(z.id()))throw new IllegalArgumentException("Referencia de zona inválida");String id=reserve(old,zoneIds);mapping.put("zone:"+old,id);var team=z.team().stream().map(m->Objects.requireNonNull(mapping.get("mob:"+m),"Criatura de Manager inexistente")).toList();var stages=new ArrayList<EncounterStage>();if(!team.isEmpty())for(int n=0;n<z.waves();n++)stages.add(new EncounterStage(StageKind.WAVE,team,Population.POOL));zones.put(id,new ZoneSpec(id,z.dimension(),z.first(),z.second(),z.points(),team,z.waves(),z.pauseSeconds(),z.respawnSeconds(),z.completionLoot().isEmpty()?"":Objects.requireNonNull(mapping.get("loot:"+z.completionLoot())),false,z.center(),z.radiusX(),z.radiusZ(),z.above(),z.below(),z.name(),"",List.of(),stages,true));}
+  return new Plan(Map.copyOf(mobs),Map.copyOf(loot),Map.copyOf(zones),Map.copyOf(mapping),sourceMobs.size(),usedLoot.size(),sourceZones.size());
+ }
+ private ManagerCombatTransfer(){}
+}

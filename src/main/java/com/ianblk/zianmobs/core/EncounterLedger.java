@@ -8,7 +8,7 @@ public final class EncounterLedger {
     public record Spawn(UUID uuid,String template,Point point,boolean defeated){public Spawn{Objects.requireNonNull(uuid);Definitions.id(template);Objects.requireNonNull(point);}}
     public record Run(UUID uuid,String zone,int wave,Phase phase,long readyAt,List<Spawn> spawns,Set<UUID> players,int baseMobs,int scaledPlayers){
         public Run(UUID uuid,String zone,int wave,Phase phase,long readyAt,List<Spawn> spawns,Set<UUID> players){this(uuid,zone,wave,phase,readyAt,spawns,players,0,0);}
-        public Run{Objects.requireNonNull(uuid);Definitions.id(zone);Objects.requireNonNull(phase);spawns=List.copyOf(spawns);players=Set.copyOf(players);if(wave<1 || wave>16 || readyAt<0 || spawns.size()>8 || players.size()>64 || baseMobs<0 || baseMobs>3 || scaledPlayers<0 || scaledPlayers>64)throw new IllegalArgumentException("Encuentro inválido");}
+        public Run{Objects.requireNonNull(uuid);Definitions.id(zone);Objects.requireNonNull(phase);spawns=List.copyOf(spawns);players=Set.copyOf(players);if(wave<1 || wave>17 || readyAt<0 || spawns.size()>8 || players.size()>64 || baseMobs<0 || baseMobs>3 || scaledPlayers<0 || scaledPlayers>64)throw new IllegalArgumentException("Encuentro inválido");}
     }
     private record Data(int schema,Map<String,Run> runs){Data{if(schema!=1)throw new IllegalArgumentException("Versión desconocida");runs=Map.copyOf(runs);}}
     private final Path path;private Map<String,Run> runs;

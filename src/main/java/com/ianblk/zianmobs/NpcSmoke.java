@@ -13,9 +13,9 @@ import com.ianblk.zianmobs.core.AtomicJson;
 /** Controlled native combat and impact tests in the isolated development world. */
 final class NpcSmoke {
  private static void require(boolean ok,String why){if(!ok)throw new IllegalStateException(why);}
- private static Cow target(ServerPlayer p,double dx){var cow=EntityType.COW.create(p.serverLevel());cow.getAttribute(Attributes.MAX_HEALTH).setBaseValue(100);cow.setHealth(100);cow.moveTo(p.getX()+dx,p.getY(),p.getZ()+16,0,0);cow.setNoAi(true);p.serverLevel().addFreshEntity(cow);return cow;}
+ private static Cow target(ServerPlayer p,double dx){var cow=EntityType.COW.create(p.serverLevel());cow.getAttribute(Attributes.MAX_HEALTH).setBaseValue(100);cow.setHealth(100);cow.moveTo(p.getX()+dx,p.serverLevel().getMaxBuildHeight()-8,p.getZ()+16,0,0);cow.setNoAi(true);p.serverLevel().addFreshEntity(cow);return cow;}
  static void run(ServerPlayer player,Zones zones)throws Exception{
-  var world=player.serverLevel();var actor=Mobs.NPC.get().create(world);actor.moveTo(player.getX()+12,player.getY(),player.getZ()+16,0,0);actor.setNoAi(true);world.addFreshEntity(actor);
+  var world=player.serverLevel();var actor=Mobs.NPC.get().create(world);actor.moveTo(player.getX()+12,world.getMaxBuildHeight()-8,player.getZ()+16,0,0);actor.setNoAi(true);world.addFreshEntity(actor);
   for(var skin:NpcProfiles.SKINS){String id="npc_"+skin.id();actor.configure(id);require(actor.skin().equals(skin.id()),"NPC skin not synchronized: "+id);require(zones.config.mobs().containsKey(id),"Default NPC template missing: "+id);var data=zones.admin.snapshot(player,"npc",id,"");var fields=data.getAsJsonObject("values");fields.addProperty("sonic",true);fields.addProperty("dragon",true);fields.addProperty("wither",true);fields.addProperty("blaze",true);zones.admin.apply(player,"npc",id,"save",fields);require(Tuning.current.npcs().get(id).skills().size()==4,"NPC skill toggles failed");}
   Tuning.start(world.getServer().getWorldPath(net.minecraft.world.level.storage.LevelResource.ROOT).resolve("data/zianmobs"));require(Tuning.current.npcs().size()==7,"NPC profiles not persisted");
   var cow=target(player,16);actor.setItemSlot(EquipmentSlot.MAINHAND,ItemStack.EMPTY);require(actor.doHurtTarget(cow)&&cow.getHealth()<100,"NPC unarmed attack failed");cow.discard();
@@ -28,7 +28,7 @@ final class NpcSmoke {
    var wall=new NpcProjectile(Mobs.PROJECTILE.get(),actor,world,kind,6);wall.smokeImpact(Vec3.atCenterOf(center.below()),null);require(wall.isRemoved(),"Projectile survived impact");
   }
   for(var block:snapshots.entrySet())require(world.getBlockState(block.getKey()).equals(block.getValue()),"Special attack changed a block: "+block.getKey());
-  actor.setItemSlot(EquipmentSlot.MAINHAND,new ItemStack(Items.BOW));cow=target(player,20);actor.setTarget(cow);for(int tick=0;tick<22;tick++)actor.customServerAiStep();var arrows=world.getEntitiesOfClass(net.minecraft.world.entity.projectile.Arrow.class,actor.getBoundingBox().inflate(8));require(arrows.stream().anyMatch(a->a.getOwner()==actor&&a.pickup==net.minecraft.world.entity.projectile.AbstractArrow.Pickup.DISALLOWED),"NPC bow did not launch a safe arrow");arrows.forEach(Entity::discard);cow.discard();
+  actor.setItemSlot(EquipmentSlot.MAINHAND,new ItemStack(Items.BOW));cow=target(player,20);actor.setTarget(cow);require(actor.hasLineOfSight(cow),"NPC smoke arena line of sight blocked");for(int tick=0;tick<64;tick++)actor.customServerAiStep();var arrows=world.getEntitiesOfClass(net.minecraft.world.entity.projectile.Arrow.class,actor.getBoundingBox().inflate(8));require(arrows.stream().anyMatch(a->a.getOwner()==actor&&a.pickup==net.minecraft.world.entity.projectile.AbstractArrow.Pickup.DISALLOWED),"NPC bow did not launch a safe arrow");arrows.forEach(Entity::discard);cow.discard();
   var saved=actor.saveWithoutId(new net.minecraft.nbt.CompoundTag());var loaded=Mobs.NPC.get().create(world);loaded.readAdditionalSaveData(saved);require(loaded.skin().equals(actor.skin()),"NPC skin lost after save/read");loaded.discard();actor.discard();
  }
  private NpcSmoke(){}

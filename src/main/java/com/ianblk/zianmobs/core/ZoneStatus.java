@@ -11,8 +11,8 @@ public final class ZoneStatus {
   if(!enabled)return "Apariciones pausadas";
   if(run==null)return "Zona lista · entra para comenzar";
   return switch(run.phase()){
-   case ACTIVE->"Oleada "+run.wave()+" de "+zone.waves()+" · quedan "+run.spawns().stream().filter(s->!s.defeated()).count()+" criaturas";
-   case WAITING->"Oleada "+(run.wave()+1)+" de "+zone.waves()+" en "+countdown(run.readyAt()-now);
+   case ACTIVE->zone.stageLabel(run.wave())+" · quedan "+run.spawns().stream().filter(s->!s.defeated()).count()+" criaturas";
+   case WAITING->zone.stageLabel(run.wave()+1)+" en "+countdown(run.readyAt()-now);
    case COMPLETE,CANCELLED->run.readyAt()>now?"Zona lista en "+countdown(run.readyAt()-now):"Zona lista · entra para comenzar";
    case REVIEW->"Zona en revisión · avisa al administrador";
   };

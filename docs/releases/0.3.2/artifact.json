@@ -1,0 +1,36 @@
+{
+  "name": "Zian Mobs",
+  "projectId": 1747525,
+  "version": "0.3.2",
+  "jar": "zianmobs-0.3.2.jar",
+  "sha256": "e81378bcd3de799a8e14d56be731a9026902b08681984e16f5760ab827c01919",
+  "dependencies": {
+    "zianmobs": [
+      {
+        "modId": "minecraft",
+        "type": "required",
+        "versionRange": "[1.21.1]",
+        "side": "BOTH"
+      },
+      {
+        "modId": "neoforge",
+        "type": "required",
+        "versionRange": "[21.1.259,)",
+        "side": "BOTH"
+      },
+      {
+        "modId": "geckolib",
+        "type": "required",
+        "versionRange": "[4.9.3,5)",
+        "side": "BOTH"
+      }
+    ]
+  },
+  "license": "MIT (code); third-party artwork retains its original licenses \u00e2\u20ac\u201d see META-INF/ARTWORK-NOTICE.txt",
+  "uploaded": true,
+  "descriptionVerified": true,
+  "fileId": 9252535,
+  "authorFileUrl": "https://authors.curseforge.com/#/projects/1747525/files/9252535",
+  "status": "Processing",
+  "verifiedAt": "2026-10-19T05:23:22.304866+00:00"
+}

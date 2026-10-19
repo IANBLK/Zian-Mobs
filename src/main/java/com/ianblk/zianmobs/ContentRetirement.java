@@ -46,11 +46,11 @@ public final class ContentRetirement {
   var affected=new HashSet<String>();
   for(var old:before.zones().values()){
    var team=old.team().stream().filter(mobs::containsKey).toList();String reward=loot.containsKey(old.completionLoot())?old.completionLoot():"";
-   boolean changed=old.team().stream().anyMatch(affectedMobs::contains)||!reward.equals(old.completionLoot())||old.team().stream().map(before.mobs()::get).anyMatch(m->!Objects.equals(before.loot().get(m.loot()),loot.get(m.loot())))||!Objects.equals(before.loot().get(old.completionLoot()),loot.get(old.completionLoot()));
+   boolean changed=old.referencedMobs().stream().anyMatch(affectedMobs::contains)||!reward.equals(old.completionLoot())||old.referencedMobs().stream().map(before.mobs()::get).anyMatch(m->!Objects.equals(before.loot().get(m.loot()),loot.get(m.loot())))||!Objects.equals(before.loot().get(old.completionLoot()),loot.get(old.completionLoot()));
    if(changed)affected.add(old.id());
-   zones.put(old.id(),new ZoneSpec(old.id(),old.dimension(),old.first(),old.second(),old.points(),team,old.waves(),old.pauseSeconds(),old.respawnSeconds(),reward,old.enabled()&&!changed,old.center(),old.radiusX(),old.radiusZ(),old.above(),old.below(),old.name()));
+   zones.put(old.id(),new ZoneSpec(old.id(),old.dimension(),old.first(),old.second(),old.points(),team,old.waves(),old.pauseSeconds(),old.respawnSeconds(),reward,old.enabled()&&!changed,old.center(),old.radiusX(),old.radiusZ(),old.above(),old.below(),old.name(),mobs.containsKey(old.boss())?old.boss():"",old.waveTeams().stream().map(row->row.stream().filter(mobs::containsKey).toList()).toList(),old.stages()==null?null:old.stages().stream().map(stage->new java.util.AbstractMap.SimpleEntry<>(stage,stage.team().stream().filter(mobs::containsKey).toList())).filter(stage->!stage.getValue().isEmpty()).map(stage->new EncounterStage(stage.getKey().kind(),stage.getValue(),stage.getKey().population())).toList(),old.autoSpawn()));
   }
-  return new Migration(new Zones.Config(5,mobs,loot,zones),Set.copyOf(affected));
+  return new Migration(new Zones.Config(before.schema(),mobs,loot,zones),Set.copyOf(affected));
  }
  private ContentRetirement(){}
 }

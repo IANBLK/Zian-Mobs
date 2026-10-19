@@ -1,0 +1,19 @@
+package com.ianblk.zianmobs;
+import com.google.gson.*;
+import com.ianblk.zianmobs.core.*;
+import net.minecraft.world.level.storage.LevelResource;
+import java.nio.file.Path;
+import java.security.MessageDigest;
+import java.nio.charset.StandardCharsets;
+/** One protected, additive import with a recoverable intent and no source mutations. */
+final class ManagerCombatBridge {
+ record Preview(String digest,ManagerCombatTransfer.Plan plan,String notice,boolean done){}
+ private static Path base(Zones z){return z.server.getWorldPath(LevelResource.ROOT).resolve("data/zianmobs");}
+ private static JsonObject source()throws Exception{try{var type=Class.forName("com.ianblk.zianmanager.ManagerRuntime");var runtime=type.getMethod("get").invoke(null);if((Boolean)type.getMethod("legacyCombatBusy").invoke(runtime))throw new IllegalStateException("Finaliza o cancela los encuentros antiguos de Manager antes de importar; sus premios pendientes se conservan allí");return (JsonObject)type.getMethod("exportCombat").invoke(runtime);}catch(ClassNotFoundException|NoSuchMethodException e){throw new IllegalStateException("Instala también Zian Manager 0.3.0 para importar sus datos",e);}}
+ private static String digest(JsonObject object)throws Exception{return java.util.HexFormat.of().formatHex(MessageDigest.getInstance("SHA-256").digest(object.toString().getBytes(StandardCharsets.UTF_8)));}
+ static Preview preview(Zones z)throws Exception{var receipt=AtomicJson.read(base(z).resolve("manager-combat-transfer.json"),JsonObject.class,null);if(receipt!=null){if(receipt.get("phase").getAsString().equals("COMPLETE"))return new Preview("",null,"Importación terminada. Las zonas importadas se activan desde Zonas y encuentros.",true);if(AtomicJson.GSON.toJsonTree(z.config).equals(receipt.get("target"))){receipt.addProperty("phase","COMPLETE");AtomicJson.write(base(z).resolve("manager-combat-transfer.json"),receipt);return new Preview("",null,"Importación recuperada sin duplicar definiciones.",true);}if(!AtomicJson.GSON.toJsonTree(z.config).equals(receipt.get("before")))throw new IllegalStateException("Importación pendiente en revisión: la configuración cambió. Se conservan la intención y la copia de seguridad");var src=source();if(!digest(src).equals(receipt.get("sourceDigest").getAsString()))throw new IllegalStateException("Manager cambió durante una importación pendiente; revisa la copia antes de continuar");}
+  var src=source();var plan=ManagerCombatTransfer.plan(src,z.config.mobs(),z.config.loot(),z.config.zones());z.validateImport(new Zones.Config(7,plan.mobs(),plan.loot(),plan.zones()));return new Preview(digest(src),plan,"Se copiarán definiciones; las zonas nuevas quedan desactivadas y los cofres no se trasladan.",false);
+ }
+ static void apply(Zones z,String expected)throws Exception{var preview=preview(z);if(preview.done())return;if(!preview.digest().equals(expected))throw new IllegalStateException("Cambió Manager. Vuelve a revisar la vista previa antes de importar");var candidate=new Zones.Config(7,preview.plan().mobs(),preview.plan().loot(),preview.plan().zones());var receipt=new JsonObject();receipt.addProperty("phase","PREPARED");receipt.addProperty("sourceDigest",preview.digest());receipt.add("before",AtomicJson.GSON.toJsonTree(z.config));receipt.add("target",AtomicJson.GSON.toJsonTree(candidate));receipt.add("identifiers",AtomicJson.GSON.toJsonTree(preview.plan().identifiers()));var root=base(z);var receiptFile=root.resolve("manager-combat-transfer.json");if(!com.ianblk.zianmobs.storage.StorageFiles.exists(root.resolve("config-before-manager-combat-import.json")))AtomicJson.write(root.resolve("config-before-manager-combat-import.json"),z.config);AtomicJson.write(receiptFile,receipt);z.save(candidate);receipt.addProperty("phase","COMPLETE");AtomicJson.write(receiptFile,receipt);}
+ private ManagerCombatBridge(){}
+}
