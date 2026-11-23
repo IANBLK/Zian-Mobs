@@ -6,7 +6,7 @@ import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.minecraft.resources.ResourceLocation;
 import software.bernie.geckolib.model.GeoModel;
 import software.bernie.geckolib.renderer.GeoEntityRenderer;
-@EventBusSubscriber(modid="zianmobs",bus=EventBusSubscriber.Bus.MOD,value=Dist.CLIENT)
+@EventBusSubscriber(modid="zianmobs",value=Dist.CLIENT)
 public final class MobsClient {
  @SubscribeEvent public static void effectExtensions(net.neoforged.neoforge.client.extensions.common.RegisterClientExtensionsEvent event){event.registerItem(new com.ianblk.zianmobs.client.TitanArmorFit(),CompanionContent.ARMOR.values().stream().map(v->v.get()).toArray(net.minecraft.world.item.Item[]::new));event.registerMobEffect(new net.neoforged.neoforge.client.extensions.common.IClientMobEffectExtensions(){@Override public boolean isVisibleInInventory(net.minecraft.world.effect.MobEffectInstance effect){return false;}@Override public boolean isVisibleInGui(net.minecraft.world.effect.MobEffectInstance effect){return false;}},GearAbilities.TITAN_AWAKENING);}
 
