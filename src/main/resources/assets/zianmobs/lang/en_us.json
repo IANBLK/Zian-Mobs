@@ -96,5 +96,18 @@
   "item.zianmobs.snowbone_spawn_egg": "Invocar Snowbone",
   "item.zianmobs.titan_double_sword": "Titan Twilight Blades",
   "item.zianmobs.titan_gauntlet": "Gauntlet of the Firmament",
-  "effect.zianmobs.titan_awakening": "Titan Concord"
+  "effect.zianmobs.titan_awakening": "Titan Concord",
+  "tooltip.zianmobs.titan.name": "✦ Titan's Accord",
+  "tooltip.zianmobs.titan.slots": "Main-hand sword and off-hand gauntlet.",
+  "tooltip.zianmobs.titan.trigger": "Critical hit or kill: Notch's blessing and night vision.",
+  "tooltip.zianmobs.titan.partial": "Duration %s s · Cooldown %s s.",
+  "tooltip.zianmobs.titan.full": "Full armor: duration %s s · cooldown %s s.",
+  "tooltip.zianmobs.gauntlet.totem": "Saves you from death in the off hand.",
+  "tooltip.zianmobs.gauntlet.consumed": "Consumed when it activates as a totem.",
+  "tooltip.zianmobs.shift": "Hold Shift for details",
+  "tooltip.zianmobs.ability": "✧ Ability (right-click)",
+  "tooltip.zianmobs.cooldown": "✧ Cooldown: %s s",
+  "tooltip.zianmobs.staff.sonic": "Projectile: sonic wave",
+  "tooltip.zianmobs.staff.wither": "Projectile: wither skull",
+  "tooltip.zianmobs.staff.dragon": "Projectile: dragon breath"
 }

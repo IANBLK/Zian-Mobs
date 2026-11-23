@@ -129,5 +129,18 @@
   "ui.zianmobs.2558602030c6": "Añadir mob",
   "ui.zianmobs.b2d3a6ec70ef": "Quitar último",
   "ui.zianmobs.d459d1251ab0": "Usar selección",
-  "ui.zianmobs.2e6ee3a21e5b": "Thanos · ajuste de brazos"
+  "ui.zianmobs.2e6ee3a21e5b": "Thanos · ajuste de brazos",
+  "tooltip.zianmobs.titan.name": "✦ Concordia del Titán",
+  "tooltip.zianmobs.titan.slots": "Espada principal y guantelete secundario.",
+  "tooltip.zianmobs.titan.trigger": "Crítico o baja: bendición de Notch y visión nocturna.",
+  "tooltip.zianmobs.titan.partial": "Duración %s s · Reutilización %s s.",
+  "tooltip.zianmobs.titan.full": "Armadura completa: duración %s s · espera %s s.",
+  "tooltip.zianmobs.gauntlet.totem": "Salva de la muerte en la mano secundaria.",
+  "tooltip.zianmobs.gauntlet.consumed": "Se consume al activarse como tótem.",
+  "tooltip.zianmobs.shift": "Mantén Mayús para más detalles",
+  "tooltip.zianmobs.ability": "✧ Habilidad (clic derecho)",
+  "tooltip.zianmobs.cooldown": "✧ Reutilización: %s s",
+  "tooltip.zianmobs.staff.sonic": "Proyectil: onda sónica",
+  "tooltip.zianmobs.staff.wither": "Proyectil: cráneo de Wither",
+  "tooltip.zianmobs.staff.dragon": "Proyectil: aliento de dragón"
 }
