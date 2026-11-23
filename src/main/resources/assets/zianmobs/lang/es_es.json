@@ -142,5 +142,8 @@
   "tooltip.zianmobs.cooldown": "✧ Reutilización: %s s",
   "tooltip.zianmobs.staff.sonic": "Proyectil: onda sónica",
   "tooltip.zianmobs.staff.wither": "Proyectil: cráneo de Wither",
-  "tooltip.zianmobs.staff.dragon": "Proyectil: aliento de dragón"
+  "tooltip.zianmobs.staff.dragon": "Proyectil: aliento de dragón",
+  "tooltip.zianmobs.staff.damage": "✧ Daño de la habilidad: %s",
+  "tooltip.zianmobs.staff.effect.wither": "✧ Wither durante %s s",
+  "tooltip.zianmobs.staff.effect.dragon": "✧ Quemadura durante %s s"
 }

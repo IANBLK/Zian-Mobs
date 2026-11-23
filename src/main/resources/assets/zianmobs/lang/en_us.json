@@ -109,5 +109,8 @@
   "tooltip.zianmobs.cooldown": "✧ Cooldown: %s s",
   "tooltip.zianmobs.staff.sonic": "Projectile: sonic wave",
   "tooltip.zianmobs.staff.wither": "Projectile: wither skull",
-  "tooltip.zianmobs.staff.dragon": "Projectile: dragon breath"
+  "tooltip.zianmobs.staff.dragon": "Projectile: dragon breath",
+  "tooltip.zianmobs.staff.damage": "✧ Ability damage: %s",
+  "tooltip.zianmobs.staff.effect.wither": "✧ Wither for %s s",
+  "tooltip.zianmobs.staff.effect.dragon": "✧ Burning for %s s"
 }

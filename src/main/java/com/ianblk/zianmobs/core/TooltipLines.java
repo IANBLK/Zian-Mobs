@@ -14,9 +14,10 @@ public final class TooltipLines {
   else{lines.add(line("tooltip.zianmobs.titan.trigger"));lines.add(line("tooltip.zianmobs.titan.partial",partialTicks/20,partialCooldown));lines.add(line("tooltip.zianmobs.titan.full",fullTicks/20,fullCooldown));}
   return lines;
  }
- public static List<Line> staff(boolean expanded,String kind,int cooldownSeconds){
+ public static List<Line> staff(boolean expanded,String kind,int cooldownSeconds,int damage,int effectSeconds){
   var lines=new ArrayList<>(List.of(line("tooltip.zianmobs.ability"),line("tooltip.zianmobs.cooldown",cooldownSeconds)));
   lines.add(expanded?line("tooltip.zianmobs.staff."+kind.toLowerCase(Locale.ROOT)):line("tooltip.zianmobs.shift"));
+  if(expanded){lines.add(line("tooltip.zianmobs.staff.damage",damage));if(effectSeconds>0)lines.add(line("tooltip.zianmobs.staff.effect."+kind.toLowerCase(Locale.ROOT),effectSeconds));}
   return lines;
  }
  private TooltipLines(){}
