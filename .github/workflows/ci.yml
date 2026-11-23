@@ -1,0 +1,36 @@
+name: Build and server smoke
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-java@de7274f081f381c8f8158605e0321c36c376e2e6 # v6.0.1
+        with:
+          distribution: temurin
+          java-version: '21'
+      - uses: gradle/actions/setup-gradle@3f5f9adaf7d9fecd50b5935e54106014257a94e6 # v6.4.0
+      - name: Compile and test
+        run: ./gradlew --no-daemon build
+      - name: Prepare smoke server
+        run: |
+          mkdir -p build/mobs-smoke
+          echo 'eula=true' > build/mobs-smoke/eula.txt
+          printf 'online-mode=false\nserver-ip=127.0.0.1\n' > build/mobs-smoke/server.properties
+      - name: Native server smoke
+        run: ./gradlew --no-daemon runMobsSmoke
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        if: always()
+        with:
+          name: zianmobs-${{ github.sha }}
+          path: |
+            build/libs/*.jar
+            build/test-results/test/*.xml
+            build/mobs-smoke/logs/latest.log
+            build/mobs-smoke/world/smoke-result.txt
