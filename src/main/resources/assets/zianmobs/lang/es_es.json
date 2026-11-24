@@ -495,5 +495,8 @@
   "ui.zianmobs.1861b31bd5f8": "Guarda este compañero antes de mejorarlo",
   "ui.zianmobs.7ebf52d6bebc": "Espera a que reviva antes de mejorarlo",
   "ui.zianmobs.353b95d9b000": "Esta mejora ya alcanzó el máximo",
-  "ui.zianmobs.0276282606b8": "Necesitas ese material en tu inventario"
+  "ui.zianmobs.0276282606b8": "Necesitas ese material en tu inventario",
+  "ui.zianmobs.63a174f0f2ec": "1 o 2 apoyos al azar · %s s · espera %s s",
+  "ui.zianmobs.750c584562dd": "Habilidad de apoyo desactivada",
+  "ui.zianmobs.3f5d51c0fd7d": "Desbloqueo del administrador"
 }

@@ -495,5 +495,8 @@
   "ui.zianmobs.1861b31bd5f8": "Store this companion before upgrading it",
   "ui.zianmobs.7ebf52d6bebc": "Wait for it to revive before upgrading it",
   "ui.zianmobs.353b95d9b000": "This upgrade has reached its maximum",
-  "ui.zianmobs.0276282606b8": "You need that material in your inventory"
+  "ui.zianmobs.0276282606b8": "You need that material in your inventory",
+  "ui.zianmobs.63a174f0f2ec": "1 or 2 random supports · %s s · cooldown %s s",
+  "ui.zianmobs.750c584562dd": "Support ability disabled",
+  "ui.zianmobs.3f5d51c0fd7d": "Unlocked by an administrator"
 }
