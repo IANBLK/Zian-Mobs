@@ -14,7 +14,7 @@ import java.util.regex.Pattern;
 import org.junit.jupiter.api.Test;
 
 class LangFilesTest {
-    private static final Pattern PLACEHOLDER = Pattern.compile("%(\\d+\\$)?[sd]");
+    private static final Pattern PLACEHOLDER = Pattern.compile("%(\\d+\\$)?[-#+0,(]*\\d*(\\.\\d+)?[sdfxXeEgG]");
     private static final String STRING = "\"((?:[^\"\\\\]|\\\\.)*)\"";
 
     private static Map<String, String> load(String name) throws Exception {
