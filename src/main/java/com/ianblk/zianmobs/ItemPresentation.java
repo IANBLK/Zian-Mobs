@@ -12,7 +12,7 @@ public final class ItemPresentation {
   if(!stack.has(DataComponents.CUSTOM_NAME))event.getToolTip().set(0,event.getToolTip().getFirst().copy().withStyle(s->s.withBold(true).withItalic(false).withColor(event.getToolTip().getFirst().getStyle().getColor()==null?net.minecraft.network.chat.TextColor.fromLegacyFormat(ChatFormatting.GOLD):event.getToolTip().getFirst().getStyle().getColor())));
   var lore=stack.get(DataComponents.LORE);if(lore!=null&&!lore.lines().isEmpty())return;
   if(false)return;
-  String fallback=stack.getItem() instanceof net.minecraft.world.item.ArmorItem?"Una promesa de protección acompaña cada paso.":stack.getItem() instanceof net.minecraft.world.item.TieredItem?"Forjado para escribir tu próxima aventura.":stack.getItem() instanceof net.minecraft.world.item.SpawnEggItem?"Una criatura aguarda al otro lado del sello.":"Un vestigio de historias aún por descubrir.";
+  var kind=stack.getItem() instanceof net.minecraft.world.item.ArmorItem?Component.translatableWithFallback("flavor.zianmobs.armor","Una promesa de protección acompaña cada paso."):stack.getItem() instanceof net.minecraft.world.item.TieredItem?Component.translatableWithFallback("flavor.zianmobs.tool","Forjado para escribir tu próxima aventura."):stack.getItem() instanceof net.minecraft.world.item.SpawnEggItem?Component.translatableWithFallback("flavor.zianmobs.spawn_egg","Una criatura aguarda al otro lado del sello."):Component.translatableWithFallback("flavor.zianmobs.other","Un vestigio de historias aún por descubrir.");String fallback=kind.getString();
   event.getToolTip().add(1,Component.translatableWithFallback("flavor.zianmobs."+id.getPath()+".short",fallback).withStyle(ChatFormatting.GRAY));
  }
 }

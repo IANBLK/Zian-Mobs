@@ -15,6 +15,7 @@ public final class ZoneHolograms {
   void text(CompoundTag tag){super.readAdditionalSaveData(tag);}
   @Override public boolean shouldBeSaved(){return false;}
  }
+ private static Object json(Object arg){return arg instanceof ZoneStatus.Line line?Map.of("translate",line.key(),"fallback",line.es(),"with",line.args().stream().map(ZoneHolograms::json).toList()):arg;}
  private final Map<String,Label> displays=new HashMap<>();
  public boolean owns(UUID uuid){return displays.values().stream().anyMatch(e->e.getUUID().equals(uuid));}
  public void clear(){displays.values().forEach(Entity::discard);displays.clear();}
@@ -29,8 +30,8 @@ public final class ZoneHolograms {
    var block=BlockPos.containing(x,y,z);if(!level.getChunkSource().hasChunk(block.getX()>>4,block.getZ()>>4))continue;
    active.add(zone.id());var display=displays.get(zone.id());boolean fresh=display==null||display.isRemoved()||display.level()!=level;
    if(fresh){if(display!=null)display.discard();display=new Label(level);display.setInvulnerable(true);display.setNoGravity(true);displays.put(zone.id(),display);}
-   String text=zone.name()+"\n"+ZoneStatus.text(zone,ledger.get(zone.id()),now,enabled);
-   var tag=new CompoundTag();tag.putString("text",AtomicJson.GSON.toJson(Map.of("text",text,"color","gold")));tag.putString("billboard","center");tag.putInt("line_width",260);tag.putString("alignment","center");tag.putFloat("view_range",1);var brightness=new CompoundTag();brightness.putInt("block",15);brightness.putInt("sky",15);tag.put("brightness",brightness);tag.putBoolean("shadow",true);tag.putBoolean("see_through",false);
+   var status=ZoneStatus.line(zone,ledger.get(zone.id()),now,enabled);
+   var tag=new CompoundTag();tag.putString("text",AtomicJson.GSON.toJson(Map.of("text",zone.name()+"\n","color","gold","extra",List.of(Map.of("translate",status.key(),"fallback",status.es(),"with",status.args().stream().map(ZoneHolograms::json).toList())))));tag.putString("billboard","center");tag.putInt("line_width",260);tag.putString("alignment","center");tag.putFloat("view_range",1);var brightness=new CompoundTag();brightness.putInt("block",15);brightness.putInt("sky",15);tag.put("brightness",brightness);tag.putBoolean("shadow",true);tag.putBoolean("see_through",false);
    display.text(tag);display.moveTo(x,y,z,0,0);display.getPersistentData().putBoolean(TAG,true);
    if(fresh&&!level.addFreshEntity(display)){displays.remove(zone.id());display.discard();}
   }

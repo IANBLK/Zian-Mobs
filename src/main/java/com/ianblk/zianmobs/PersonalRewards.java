@@ -16,7 +16,7 @@ public final class PersonalRewards {
  private static boolean allowed(ServerPlayer p){return com.ianblk.zianmobs.permission.MobsPermissions.allows(p,"loot");}
  private static void show(ServerPlayer p,String notice){
   try{
-   if(!allowed(p))throw new IllegalArgumentException("No tienes acceso a las recompensas");
+   if(!allowed(p))throw new Say("error.zianmobs.rewards.no_access","No tienes acceso a las recompensas");
    long now=System.currentTimeMillis();if(now<requests.getOrDefault(p.getUUID(),0L))return;requests.put(p.getUUID(),now+150);
    var claims=MobsNetwork.admin.zones().rewards.forPlayer(p.getUUID());
    var ids=new LinkedHashSet<UUID>();var rows=new JsonArray();
@@ -25,15 +25,15 @@ public final class PersonalRewards {
    }
    var token=UUID.randomUUID();sessions.put(p.getUUID(),new Session(token,now+120000,Set.copyOf(ids)));
    var view=new JsonObject();view.addProperty("section","personal_rewards");view.addProperty("token",token.toString());view.addProperty("notice",notice);view.add("entries",rows);MobsNetwork.send(p,new MobsNetwork.JsonView(view.toString()));
-  }catch(Exception error){p.sendSystemMessage(Messages.format(Component.literal(error.getMessage()==null?"No se pudieron consultar tus premios":error.getMessage())));}
+  }catch(Exception error){p.sendSystemMessage(Messages.format(Say.of(error,"message.zianmobs.rewards.query_failed","No se pudieron consultar tus premios")));}
  }
  public static void claim(ServerPlayer p,UUID token,String operation,String json){
   var session=sessions.remove(p.getUUID());if(session==null||!session.token().equals(token)||session.expires()<System.currentTimeMillis())return;
   String notice="";
   try{
-   if(!allowed(p)||!operation.equals("claim"))throw new IllegalArgumentException("Acción no permitida");
+   if(!allowed(p)||!operation.equals("claim"))throw new Say("error.zianmobs.action_denied","Acción no permitida");
    UUID id=UUID.fromString(JsonParser.parseString(json).getAsJsonObject().get("id").getAsString());
-   if(!session.ids().contains(id))throw new IllegalArgumentException("Este premio no pertenece a esta sesión o requiere revisión");
+   if(!session.ids().contains(id))throw new Say("error.zianmobs.rewards.not_in_session","Este premio no pertenece a esta sesión o requiere revisión");
    MobsNetwork.admin.zones().claimPersonal(p,id);
    notice="Estado actualizado. Las entregas en revisión no se repiten.";
   }catch(Exception error){notice=error.getMessage()==null?"No se pudo completar la entrega":error.getMessage();}
