@@ -13,7 +13,9 @@ public final class CompanionUpgrades {
   int get(String key){return switch(key){case "health"->health;case "damage"->damage;case "armor"->armor;case "duration"->duration;case "cooldown"->cooldown;case "revive"->revive;default->throw new IllegalArgumentException("Mejora desconocida");};}
   Levels add(String key,int points){return new Levels(next("health",key,health,points),next("damage",key,damage,points),next("armor",key,armor,points),next("duration",key,duration,points),next("cooldown",key,cooldown,points),next("revive",key,revive,points));}
   private static int next(String stat,String key,int n,int points){return key.equals(stat)||key.equals("all")?Math.min(10,n+points):n;}
-  public String summary(){return "Vida "+health+"/10 · Daño "+damage+"/10 · Armadura "+armor+"/10 · Duración "+duration+"/10 · Espera "+cooldown+"/10 · Resurrección "+revive+"/10";}
+  private static final String SUMMARY="Vida %s/10 · Daño %s/10 · Armadura %s/10 · Duración %s/10 · Espera %s/10 · Resurrección %s/10";
+  public String summary(){return String.format(SUMMARY,health,damage,armor,duration,cooldown,revive);}
+  public net.minecraft.network.chat.MutableComponent summaryText(){return Component.translatableWithFallback("command.zianmobs.upgrades.summary",SUMMARY,health,damage,armor,duration,cooldown,revive);}
  }
  public record Material(String id,String name,String stat,int points){}
  public static final List<Material> CATALOG=new ArrayList<>();
