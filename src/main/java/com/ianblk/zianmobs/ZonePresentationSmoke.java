@@ -18,8 +18,13 @@ final class ZonePresentationSmoke {
  /* El cartel viaja como componente traducible; se reconstruye su español de respaldo para comparar el mismo texto de siempre. */
  private static String rendered(String json){
   var root=com.google.gson.JsonParser.parseString(json).getAsJsonObject();var out=new StringBuilder(root.get("text").getAsString());
-  for(var element:root.getAsJsonArray("extra")){var part=element.getAsJsonObject();if(!part.get("translate").getAsString().startsWith("zone.zianmobs.status."))throw new IllegalStateException("Unexpected zone label key: "+json);var args=new java.util.ArrayList<String>();for(var arg:part.getAsJsonArray("with"))args.add(arg.getAsString());out.append(String.format(part.get("fallback").getAsString(),args.toArray()));}
+  for(var element:root.getAsJsonArray("extra")){var part=element.getAsJsonObject();if(!part.get("translate").getAsString().startsWith("zone.zianmobs.status."))throw new IllegalStateException("Unexpected zone label key: "+json);out.append(fallback(part,json));}
   return out.toString();
+ }
+ private static String fallback(com.google.gson.JsonObject part,String json){
+  if(!part.get("translate").getAsString().startsWith("zone.zianmobs."))throw new IllegalStateException("Unexpected zone label key: "+json);
+  var args=new java.util.ArrayList<String>();for(var arg:part.getAsJsonArray("with"))args.add(arg.isJsonObject()?fallback(arg.getAsJsonObject(),json):arg.getAsString());
+  return String.format(part.get("fallback").getAsString(),args.toArray());
  }
  private ZonePresentationSmoke(){}
 }
