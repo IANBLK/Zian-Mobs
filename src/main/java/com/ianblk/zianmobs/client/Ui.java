@@ -53,14 +53,23 @@ final class Ui {
   String name=row.get("name").getAsString(),id=row.get("id").getAsString();
   templates();String es=spanish.get("item.zianmobs."+id);
   if(es!=null&&name.startsWith(es))return Language.getInstance().getOrDefault("item.zianmobs."+id,es)+text(name.substring(es.length()));
-  String pet=spanish.get("entity.zianmobs.companion_"+id);
-  if(pet!=null&&name.equals(pet))return Language.getInstance().getOrDefault("entity.zianmobs.companion_"+id,pet);
+  String pet=pet(id,name);if(pet!=null)return pet;
   return fixed(name);
  }
  /** Título de una pantalla de compañero "Nombre · tipo": el tipo se muestra con el nombre del idioma elegido (el apodo del jugador no aparece en estos títulos). */
  static String petTitle(String title,String id){
-  String done=title(title);templates();String es=spanish.get("entity.zianmobs.companion_"+id);
-  return es!=null&&done.endsWith(" · "+es)?done.substring(0,done.length()-es.length())+Language.getInstance().getOrDefault("entity.zianmobs.companion_"+id,es):done;
+  String done=title(title);int cut=done.indexOf(" · ");if(cut<0)return done;
+  String pet=pet(id,done.substring(cut+3));
+  return pet==null?done:done.substring(0,cut+3)+pet;
+ }
+ /** Nombre del tipo de compañero en el idioma elegido si el texto es su nombre por defecto (entero o sin el apodo de fábrica "Sleepy · "); un apodo del jugador no coincide y queda igual. */
+ private static String pet(String id,String name){
+  templates();String key="entity.zianmobs.companion_"+id,es=spanish.get(key);
+  if(es==null)return null;
+  String now=Language.getInstance().getOrDefault(key,es);
+  if(name.equals(es))return now;
+  String shortEs=es.substring(es.lastIndexOf(" · ")+(es.contains(" · ")?3:0));
+  return name.equals(shortEs)?now.substring(now.lastIndexOf(" · ")+(now.contains(" · ")?3:0)):null;
  }
  /** Si el texto no cabe, recorta el principio y conserva el final ("… · tienes 8"). */
  static String fit(net.minecraft.client.gui.Font font,String text,int width){
