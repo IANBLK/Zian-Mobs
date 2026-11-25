@@ -53,7 +53,20 @@ final class Ui {
   String name=row.get("name").getAsString(),id=row.get("id").getAsString();
   templates();String es=spanish.get("item.zianmobs."+id);
   if(es!=null&&name.startsWith(es))return Language.getInstance().getOrDefault("item.zianmobs."+id,es)+text(name.substring(es.length()));
+  String pet=spanish.get("entity.zianmobs.companion_"+id);
+  if(pet!=null&&name.equals(pet))return Language.getInstance().getOrDefault("entity.zianmobs.companion_"+id,pet);
   return fixed(name);
+ }
+ /** Título de una pantalla de compañero "Nombre · tipo": el tipo se muestra con el nombre del idioma elegido (el apodo del jugador no aparece en estos títulos). */
+ static String petTitle(String title,String id){
+  String done=title(title);templates();String es=spanish.get("entity.zianmobs.companion_"+id);
+  return es!=null&&done.endsWith(" · "+es)?done.substring(0,done.length()-es.length())+Language.getInstance().getOrDefault("entity.zianmobs.companion_"+id,es):done;
+ }
+ /** Si el texto no cabe, recorta el principio y conserva el final ("… · tienes 8"). */
+ static String fit(net.minecraft.client.gui.Font font,String text,int width){
+  if(font.width(text)<=width)return text;
+  int cut=text.lastIndexOf(" · ");String tail=cut<0?"":text.substring(cut);
+  return font.plainSubstrByWidth(text,Math.max(10,width-font.width(tail)-font.width("…")))+"…"+tail;
  }
 
  private static final java.util.Map<String,String> CACHE=new HashMap<>();
@@ -63,7 +76,7 @@ final class Ui {
  private static synchronized UiTemplates templates(){
   if(templates==null){var map=new HashMap<String,String>();
    try(var in=Ui.class.getResourceAsStream("/assets/zianmobs/lang/es_es.json")){
-    JsonParser.parseString(new String(in.readAllBytes(),StandardCharsets.UTF_8)).getAsJsonObject().entrySet().forEach(e->{map.put(e.getKey(),e.getValue().getAsString());if(e.getKey().startsWith("item.zianmobs.shadow_"))spanish.put(e.getKey(),e.getValue().getAsString());});
+    JsonParser.parseString(new String(in.readAllBytes(),StandardCharsets.UTF_8)).getAsJsonObject().entrySet().forEach(e->{map.put(e.getKey(),e.getValue().getAsString());if(e.getKey().startsWith("item.zianmobs.shadow_")||e.getKey().startsWith("entity.zianmobs.companion_"))spanish.put(e.getKey(),e.getValue().getAsString());});
    }catch(Exception ignored){}
    templates=new UiTemplates(map);}
   return templates;
@@ -72,8 +85,14 @@ final class Ui {
   String whole=render(text);if(whole!=null)return whole;
   if(!text.contains(" · "))return text;
   var out=new StringBuilder();boolean first=true;
-  for(String part:text.split(" · ",-1)){if(!first)out.append(" · ");first=false;String done=render(part);out.append(done==null?part:done);}
+  for(String part:text.split(" · ",-1)){if(!first)out.append(" · ");first=false;String done=render(part);if(done==null)done=sentences(part);out.append(done==null?part:done);}
   return out.toString();
+ }
+ private static String sentences(String part){
+  if(!part.contains(". "))return null;
+  var out=new StringBuilder();boolean any=false;
+  for(String s:part.split("(?<=[.]) ")){String done=render(s);any|=done!=null;if(out.length()>0)out.append(" ");out.append(done==null?s:done);}
+  return any?out.toString():null;
  }
  private static String render(String text){
   var hit=templates().match(text);
