@@ -839,5 +839,6 @@
   "ui.zianmobs.85f0f04e45aa": "Amelia de las Flores",
   "ui.zianmobs.d7cbcd88cfa0": "Sol del Ámbar",
   "ui.zianmobs.b14694694db8": "Magnus de Cobre",
-  "ui.zianmobs.d304eea558d4": "NPC: skin válida; golpe 20–400 ticks; habilidad 40–2400 ticks; alcance 4–32; daño especial 0–64"
+  "ui.zianmobs.d304eea558d4": "NPC: skin válida; golpe 20–400 ticks; habilidad 40–2400 ticks; alcance 4–32; daño especial 0–64",
+  "ui.zianmobs.43df87f64f07": "%s · nivel %s/%s"
 }

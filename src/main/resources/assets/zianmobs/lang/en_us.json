@@ -839,5 +839,6 @@
   "ui.zianmobs.85f0f04e45aa": "Amelia of Flowers",
   "ui.zianmobs.d7cbcd88cfa0": "Sol of Amber",
   "ui.zianmobs.b14694694db8": "Magnus of Copper",
-  "ui.zianmobs.d304eea558d4": "NPC: valid skin; hit 20–400 ticks; skill 40–2400 ticks; reach 4–32; special damage 0–64"
+  "ui.zianmobs.d304eea558d4": "NPC: valid skin; hit 20–400 ticks; skill 40–2400 ticks; reach 4–32; special damage 0–64",
+  "ui.zianmobs.43df87f64f07": "%s · level %s/%s"
 }

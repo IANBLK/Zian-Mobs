@@ -90,7 +90,8 @@ class LangFilesTest {
             while (m.find()) {
                 var text = unescape(m.group(1)).trim();
                 if (text.length() < 3 || text.contains("{}") || !SPANISH.matcher(text).find() || NOT_SENT.contains(text)) continue;
-                if (templates.match(text) == null && es.values().stream().noneMatch(v -> v.contains(text))) missing.add(name + ": " + text);
+                var probe = text.replaceAll("%[-#+ 0,(]*\\d*(\\.\\d+)?[sdf]", "1");
+                if (templates.match(probe) == null && es.values().stream().noneMatch(v -> v.contains(text))) missing.add(name + ": " + text);
             }
         }
         assertTrue(missing.isEmpty(), "Textos del servidor sin clave: " + missing);
@@ -101,6 +102,9 @@ class LangFilesTest {
         assertEquals(java.util.List.of("name"), templates.match("Falta el campo name").args());
         assertEquals(java.util.List.of("Oleada 2 de 3", "1 min 5 s"), templates.match("Oleada 2 de 3 en 1 min 5 s").args());
         assertEquals(java.util.List.of("1", "2", "3"), templates.match("Centro: 1, 2, 3").args());
+        assertEquals(null, templates.match("Guardado. Los cambios se aplican en las próximas apariciones."));
+        assertEquals(null, templates.match("Mi zona en el norte"));
+        assertTrue(templates.match("36.0 · nivel 0/10") != null);
     }
 
     private static String unescape(String java) { return java.replace("\\n", "\n").replace("\\\"", "\""); }
