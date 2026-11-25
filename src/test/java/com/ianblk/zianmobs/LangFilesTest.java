@@ -84,7 +84,7 @@ class LangFilesTest {
         var templates = new com.ianblk.zianmobs.core.UiTemplates(es);
         var literal = Pattern.compile(STRING);
         var missing = new java.util.TreeSet<String>();
-        for (String name : new String[] {"MobsAdmin", "Companions", "CompanionUpgrades", "core/CompanionNames", "core/AdminSections", "core/Definitions", "core/EditSessions", "core/QuickEncounter"}) {
+        for (String name : new String[] {"MobsAdmin", "Companions", "CompanionUpgrades", "core/CompanionNames", "NpcProfiles", "core/AdminSections", "core/Definitions", "core/EditSessions", "core/QuickEncounter"}) {
             var source = Files.readString(Path.of("src/main/java/com/ianblk/zianmobs/" + name + ".java"), StandardCharsets.UTF_8);
             var m = literal.matcher(source);
             while (m.find()) {
